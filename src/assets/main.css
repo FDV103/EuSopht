@@ -1,0 +1,25 @@
+/* Todo: We need to define variables for any colour used in the project 
+and add the corresponding dark theme colour to the .dark class 
+so theme toggle works across all pages */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-colour: linear-gradient(45deg, #ffff, #848383);
+  --text-colour: black;
+}
+
+body {
+  background: var(--background-colour);
+  color: var(--text-colour);
+  min-height: 100vh;
+}
+
+.dark {
+  --background-colour: linear-gradient(45deg, #575656, #000000);
+  --text-colour: white;
+}

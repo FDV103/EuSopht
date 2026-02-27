@@ -58,12 +58,16 @@ git commit -m "message that describes your work"
 git push origin your-branch-name
 ```
 ### 6. Open a Pull Request
-Go to the repo on GitHub
-Click the Pull Requests tab
-Click on the open Pull Request
-Click Files changed to see your changes
-If it looks good click Review changes → select Approve → Submit review
-Then click Merge pull request → Confirm merge
+1. Go to the repo on GitHub
+2. Click the Pull Requests tab
+3. Click New button
+4. Under compare changes set base: main, compare: your branch
+5. Click Create pull request button
+6. Add description optional
+7. Click Create pull request button
+8. Click Merge pull request button
+9. Click Confirm merge button
+10. Should say this branch was successfully deployed
 
 ### Next time you go to work on your branch that you've already created
 ```
@@ -73,6 +77,6 @@ You NEED this in case someone else has changed shared files since you last worke
 ```
 git pull origin main
 ```
-happy coding, format/save/commit/push as usual
+happy coding, format/save/commit/push/pull as usual
 
 

@@ -77,6 +77,9 @@ You NEED this in case someone else has changed shared files since you last worke
 ```
 git pull origin main
 ```
+```
+git push origin your-branch-name
+```
 happy coding, format/save/commit/push/pull as usual
 
 

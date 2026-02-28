@@ -1,5 +1,5 @@
-/* Todo: We need to define variables for any colour used in the project 
-and add the corresponding dark theme colour to the .dark class 
+/* Todo: We need to define variables for any colour used in the project
+and add the corresponding dark theme colour to the .dark class
 so theme toggle works across all pages */
 
 * {
@@ -11,6 +11,7 @@ so theme toggle works across all pages */
 :root {
   --background-colour: linear-gradient(45deg, #ffff, #848383);
   --text-colour: black;
+  --nav-bg-colour: linear-gradient(90deg, white, red);
 }
 
 body {
@@ -19,7 +20,12 @@ body {
   min-height: 100vh;
 }
 
+nav {
+  background: var(--nav-bg-colour);
+}
+
 .dark {
   --background-colour: linear-gradient(45deg, #575656, #000000);
   --text-colour: white;
+  --nav-bg-colour: linear-gradient(90deg, red, black);
 }

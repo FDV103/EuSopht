@@ -9,9 +9,9 @@ so theme toggle works across all pages */
 }
 
 :root {
-  --background-colour: linear-gradient(45deg, #ffff, #848383);
+  --background-colour: #f4f4f6;
   --text-colour: black;
-  --nav-bg-colour: linear-gradient(90deg, white, red);
+  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #9489f9 );
 }
 
 body {
@@ -25,7 +25,7 @@ nav {
 }
 
 .dark {
-  --background-colour: linear-gradient(45deg, #575656, #000000);
+  --background-colour: #0f0f1a;
   --text-colour: white;
-  --nav-bg-colour: linear-gradient(90deg, red, black);
+  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #0f0f1a);
 }

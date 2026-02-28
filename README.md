@@ -67,7 +67,7 @@ git push origin your-branch-name
 7. Click Create pull request button
 8. Click Merge pull request button
 9. Click Confirm merge button
-10. Should say this branch was successfully deployed
+10. Should say pull request successfully merged and closed
 
 ### Next time you go to work on your branch that you've already created
 ```

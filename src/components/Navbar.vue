@@ -1,8 +1,12 @@
+<!-- Todo: Style is currently terrible when menu open.
+ Make sure team re runs npm install for updated theme btns locally.
+ Improve the theme-btn further if there's time, something like lucide.dev has -->
 <script setup>
 import Eusopht_logo from '@/assets/Eusopht_logo-white.png'
-import { ref } from 'vue';
+import { Sun, Moon } from 'lucide-vue-next'
+import { ref } from 'vue'
 
-const isOpen = ref(false);
+const isOpen = ref(false)
 const props = defineProps(['isDark'])
 const emit = defineEmits(['toggleTheme'])
 
@@ -19,9 +23,10 @@ const toggleIsOpen = () => {
         <span :class="{ open: isOpen }"></span>
         <span :class="{ open: isOpen }"></span>
       </button>
-      <img :src="Eusopht_logo" alt="EuSopht Logo" class="nav-logo"/>
+      <img :src="Eusopht_logo" alt="EuSopht Logo" class="nav-logo" />
       <button @click="emit('toggleTheme')" class="theme-btn">
-        {{ props.isDark ? '☀️' : '🔦' }}
+        <Sun :size="32" color="orange" v-if="props.isDark" />
+        <Moon :size="32" color="white" v-else />
       </button>
     </div>
     <ul v-show="isOpen">
@@ -36,25 +41,21 @@ const toggleIsOpen = () => {
 </template>
 
 <style scoped>
-
 .nav-bar-container {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
-
 }
 
 .nav-logo {
-  height: 50px;
+  height: 40px;
 }
 
 .theme-btn {
   margin-left: auto;
   background: none;
-  border: none;
   cursor: pointer;
-  font-size: 1.5rem;
 }
 
 .hamburger-btn {
@@ -73,7 +74,9 @@ const toggleIsOpen = () => {
   height: 3px;
   background: white;
   border-radius: 3px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .hamburger-btn span:nth-child(1).open {
@@ -107,5 +110,4 @@ li a:hover {
   opacity: 0.8;
   border-bottom: 2px solid white;
 }
-
 </style>

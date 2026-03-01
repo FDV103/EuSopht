@@ -1,6 +1,6 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const isDark = ref(false)
 

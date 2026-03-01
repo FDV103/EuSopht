@@ -1,4 +1,6 @@
-/* Todo: We need to define variables for any colour used in the project
+/* None of this is official yet, still need branding package. I just picked things similar to the existing site. Feel free to change as you please 😄 */
+
+/* Todo: We need to define variables for any colour used in the project in root
 and add the corresponding dark theme colour to the .dark class
 so theme toggle works across all pages */
 
@@ -10,22 +12,78 @@ so theme toggle works across all pages */
 
 :root {
   --background-colour: #f4f4f6;
-  --text-colour: black;
-  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #9489f9 );
+  --text-colour: #1a1a2e;
+  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #9489f9);
+
+  /* Contact page submit btn and FAQ page questions use something like the variables below on the existing site
+    We will also need a 2nd btn colour scheme defined, in existing site their are multiple btn styles
+  */
+  --button-bg-colour: #1a1a2e;
+  --button-text-colour: #e8e8f0;
+  --input-focus-colour: #2a2a3d;
+  /* Many of the pages use a faint border like this for cards etc */
+  --border-colour-faint: #e0e0e0;
+}
+
+.dark {
+  --background-colour: #0f0f1a;
+  --text-colour: #e8e8f0;
+  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #0f0f1a);
+  --button-bg-colour: #e8e8f0;
+  --button-text-colour: #1a1a2e;
+  --input-focus-colour: #9489f9;
+  --border-colour-faint: #2a2a3d;
 }
 
 body {
   background: var(--background-colour);
   color: var(--text-colour);
   min-height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  /* This margin is so the navbar doesn't cover any body content*/
+  margin-top: 80px;
 }
 
 nav {
   background: var(--nav-bg-colour);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
-.dark {
-  --background-colour: #0f0f1a;
-  --text-colour: white;
-  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #0f0f1a);
+nav ul {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0.5rem 1.5rem 1rem;
+  background: var(--nav-bg-colour);
+}
+
+/* Todo: refactor in future to accommodate multiple btn types */
+button {
+  background-color: var(--button-bg-colour);
+  color: var(--button-text-colour);
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }

@@ -1,9 +1,4 @@
-/* None of this is official yet, still need branding package. I just picked things similar to the existing site. Feel free to change as you please 😄 */
-
-/* Todo: We need to define variables for any colour used in the project in root
-and add the corresponding dark theme colour to the .dark class
-so theme toggle works across all pages */
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&family=Geist+Mono:wght@100..900&display=swap');
 
 * {
   margin: 0;
@@ -11,54 +6,63 @@ so theme toggle works across all pages */
   box-sizing: border-box;
 }
 
+/* Light theme colours are defined in root, the colours they switch to are defined in .dark using the same variable name */
 :root {
-  /* This is used by the GridPattern component */
-  --grid-colour: #80808012;
-  /* Geist mono is used as an accent font in many of our pages. */
-  --accent-font: 'Geist Mono', monospace;
-  --background-colour: #f4f4f6;
-  --text-colour: #1a1a2e;
-  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #9489f9);
+  /* CLIENT REQUESTED - DO NOT CHANGE................................................................................. */
+  --primary-colour: #0052cc;
+  --secondary-colour: #00a8e8;
+  --background-colour: #ffffff;
+  --section-background-colour: #f5f7fa;
+  --text-colour-primary: #111315;
+  --text-colour-secondary: #4b4f56;
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', Arial, sans-serif;
+  /* Geist mono was not given in client package, but if you check dev tools it is used as an accent font on many pages. */
+  --font-accent: 'Geist Mono', monospace;
 
-  /* Contact page submit btn and FAQ page questions use something like the variables below on the existing site
-    We will also need a 2nd btn colour scheme defined, in existing site their are multiple btn styles
-  */
-  --button-bg-colour: #1a1a2e;
-  --button-text-colour: #e8e8f0;
-  --input-focus-colour: #2a2a3d;
-  /* Many of the pages use a faint border like this for cards etc */
-  --border-colour-faint: #e0e0e0;
+  /* TEAM CREATED - ADD/CHANGE AS NEEDED............................................................................... */
+  --nav-bg-colour: linear-gradient(90deg, var(--primary-colour), var(--secondary-colour));
+  /* A faint border for light theme, none of client light colours worked. Used in contact page currently */
+  --faint-border: #d0d5dd;
+  /* components/GridPattern.vue - subtle grid effect used at top of many pages on the existing site */
+  --grid-colour: #80808012;
 }
 
 .dark {
+  /* CLIENT REQUESTED - DO NOT CHANGE................................................................................. */
+  --primary-colour: #4da6ff;
+  --secondary-colour: #1f6feb;
+  --background-colour: #0f1115;
+  --section-background-colour: #15181d;
+  --text-colour-primary: #e3e6eb;
+  --text-colour-secondary: #00d9ff;
+
+  /* TEAM CREATED - ADD/CHANGE AS NEEDED............................................................................... */
+  --nav-bg-colour: linear-gradient(90deg, var(--secondary-colour), var(--background-colour));
+  --faint-border: var(--section-background-colour);
   --grid-colour: #ffffff08;
-  --background-colour: #0f0f1a;
-  --text-colour: #e8e8f0;
-  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #0f0f1a);
-  --button-bg-colour: #e8e8f0;
-  --button-text-colour: #1a1a2e;
-  --input-focus-colour: #9489f9;
-  --border-colour-faint: #2a2a3d;
 }
 
 body {
   background: var(--background-colour);
-  color: var(--text-colour);
+  color: var(--text-colour-primary);
   min-height: 100vh;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Open Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-secondary);
   /* This padding is so the navbar doesn't cover any body content*/
   padding-top: 80px;
+}
+
+/* I hate how prettier formats one per line like this */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+label,
+nav {
+  font-family: var(--font-primary);
 }
 
 nav {
@@ -78,13 +82,13 @@ nav ul {
   background: var(--nav-bg-colour);
 }
 
-/* Todo: refactor in future to accommodate multiple btn types */
+/* Todo: Decide as a team how to approach buttons, this gives light: blue background, white text. dark: light blue background, black text. */
 button {
-  background-color: var(--button-bg-colour);
-  color: var(--button-text-colour);
+  background-color: var(--primary-colour);
+  color: var(--background-colour);
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
-  font-family: inherit;
+  /* for theme icons, just scope this in the navbar if others need borders */
   border: none;
   border-radius: 0.25rem;
 }

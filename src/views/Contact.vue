@@ -3,7 +3,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import GridPattern from '@/components/GridPattern.vue';
+import GridPattern from '@/components/GridPattern.vue'
 
 const form = reactive({
   fullName: '',
@@ -23,7 +23,6 @@ const handleSubmit = () => {}
     <p>Ready to explore what automation can do for your business?</p>
     <p>Send us a message for a personalized walkthrough.</p>
   </section>
-
   <form @submit.prevent="handleSubmit">
     <h2>Contact Information</h2>
     <label for="fullName">Full Name</label>
@@ -45,7 +44,6 @@ const handleSubmit = () => {}
 </template>
 
 <style scoped>
-
 .container {
   display: grid;
   text-align: center;
@@ -54,7 +52,9 @@ const handleSubmit = () => {}
 }
 
 .container p {
-  font-family: var(--accent-font);
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  color: var(--text-colour-secondary);
 }
 
 form {
@@ -63,13 +63,13 @@ form {
   width: min(600px, 100% - 2rem);
   padding: 1rem;
   margin: 1rem auto;
-  border: 2px solid var(--border-colour-faint);
+  border: 2px solid var(--faint-border);
   border-radius: 0.25rem;
 }
 
 form input,
 textarea {
-  border: 2px solid var(--border-colour-faint);
+  border: 2px solid var(--faint-border);
   outline: none;
   border-radius: 0.25rem;
   padding: 1rem 0.5rem;
@@ -77,7 +77,7 @@ textarea {
 
 form input:focus,
 textarea:focus {
-  border-color: var(--input-focus-colour);
+  border-color: var(--primary-colour);
 }
 
 textarea {

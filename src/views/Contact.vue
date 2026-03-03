@@ -3,6 +3,7 @@
 
 <script setup>
 import { reactive } from 'vue'
+import GridPattern from '@/components/GridPattern.vue';
 
 const form = reactive({
   fullName: '',
@@ -17,6 +18,7 @@ const handleSubmit = () => {}
 
 <template>
   <section class="container">
+    <GridPattern />
     <h1>Get In Touch</h1>
     <p>Ready to explore what automation can do for your business?</p>
     <p>Send us a message for a personalized walkthrough.</p>
@@ -43,16 +45,16 @@ const handleSubmit = () => {}
 </template>
 
 <style scoped>
+
 .container {
   display: grid;
   text-align: center;
-  gap: 1rem;
-  margin: 1rem;
+  gap: 2rem;
+  margin: 2rem;
 }
 
 .container p {
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-family: var(--accent-font);
 }
 
 form {

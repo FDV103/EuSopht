@@ -3,6 +3,7 @@
 /* Todo: We need to define variables for any colour used in the project in root
 and add the corresponding dark theme colour to the .dark class
 so theme toggle works across all pages */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 
 * {
   margin: 0;
@@ -11,6 +12,10 @@ so theme toggle works across all pages */
 }
 
 :root {
+  /* This is used by the GridPattern component */
+  --grid-colour: #80808012;
+  /* Geist mono is used as an accent font in many of our pages. */
+  --accent-font: 'Geist Mono', monospace;
   --background-colour: #f4f4f6;
   --text-colour: #1a1a2e;
   --nav-bg-colour: linear-gradient(90deg, #1d1b85, #9489f9);
@@ -26,6 +31,7 @@ so theme toggle works across all pages */
 }
 
 .dark {
+  --grid-colour: #ffffff08;
   --background-colour: #0f0f1a;
   --text-colour: #e8e8f0;
   --nav-bg-colour: linear-gradient(90deg, #1d1b85, #0f0f1a);
@@ -51,8 +57,8 @@ body {
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
-  /* This margin is so the navbar doesn't cover any body content*/
-  margin-top: 80px;
+  /* This padding is so the navbar doesn't cover any body content*/
+  padding-top: 80px;
 }
 
 nav {

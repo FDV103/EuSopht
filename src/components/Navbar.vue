@@ -1,10 +1,9 @@
-<!-- Todo: Style is currently terrible when menu open.
- Make sure team re runs npm install for updated theme btns locally.
- Improve the theme-btn further if there's time, something like lucide.dev has -->
+<!-- Todo: -->
 <script setup>
 import Eusopht_logo from '@/assets/Eusopht_logo-white.png'
 import { Sun, Moon } from 'lucide-vue-next'
 import { ref } from 'vue'
+import ContactLink from './ContactLink.vue'
 
 const isOpen = ref(false)
 const props = defineProps(['isDark'])
@@ -24,7 +23,11 @@ const toggleIsOpen = () => {
         <span :class="{ open: isOpen }"></span>
       </button>
       <img :src="Eusopht_logo" alt="EuSopht Logo" class="nav-logo" />
-      <button @click="emit('toggleTheme')" class="theme-btn">
+      <button
+        @click="emit('toggleTheme')"
+        class="theme-btn"
+        :title="props.isDark ? 'Switch to light theme ' : 'Switch to dark theme'"
+      >
         <Sun :size="32" color="orange" v-if="props.isDark" />
         <Moon :size="32" color="white" v-else />
       </button>
@@ -35,7 +38,7 @@ const toggleIsOpen = () => {
       <li @click="toggleIsOpen"><RouterLink to="/client">Client</RouterLink></li>
       <li @click="toggleIsOpen"><RouterLink to="/faq">FAQ</RouterLink></li>
       <li @click="toggleIsOpen"><RouterLink to="/blog">Blog</RouterLink></li>
-      <li @click="toggleIsOpen"><RouterLink to="/contact">Contact</RouterLink></li>
+      <li @click="toggleIsOpen"><ContactLink class="contact-link" /></li>
     </ul>
   </nav>
 </template>
@@ -72,7 +75,7 @@ const toggleIsOpen = () => {
   display: block;
   width: 28px;
   height: 3px;
-  background: white;
+  background: var(--background-colour);
   border-radius: 3px;
   transition:
     transform 0.3s ease,
@@ -102,12 +105,29 @@ li {
 
 li a {
   text-decoration: none;
-  color: white;
+  color: var(--background-colour);
   font-size: 1.25rem;
 }
 
 li a:hover {
   opacity: 0.8;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--background-colour);
+}
+
+.contact-link {
+  border: 2px solid var(--secondary-colour);
+  background-color: var(--primary-colour);
+  color: var(--background-colour);
+}
+
+.contact-link:hover {
+  border: 2px solid var(--primary-colour);
+}
+
+/* Bumps down font size when menu is open on mobile */
+@media (max-width: 480px) {
+  li a {
+    font-size: 1rem;
+  }
 }
 </style>

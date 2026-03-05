@@ -3,7 +3,6 @@
 import Eusopht_logo from '@/assets/Eusopht_logo-white.png'
 import { Sun, Moon } from 'lucide-vue-next'
 import { ref } from 'vue'
-import ContactLink from './ContactLink.vue'
 
 const isOpen = ref(false)
 const props = defineProps(['isDark'])
@@ -38,7 +37,9 @@ const toggleIsOpen = () => {
       <li @click="toggleIsOpen"><RouterLink to="/client">Client</RouterLink></li>
       <li @click="toggleIsOpen"><RouterLink to="/faq">FAQ</RouterLink></li>
       <li @click="toggleIsOpen"><RouterLink to="/blog">Blog</RouterLink></li>
-      <li @click="toggleIsOpen"><ContactLink class="contact-link" /></li>
+      <li @click="toggleIsOpen">
+        <RouterLink to="/contact" class="contact-link">Get Started</RouterLink>
+      </li>
     </ul>
   </nav>
 </template>
@@ -118,10 +119,20 @@ li a:hover {
   border: 2px solid var(--secondary-colour);
   background-color: var(--primary-colour);
   color: var(--background-colour);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
 }
 
 .contact-link:hover {
   border: 2px solid var(--primary-colour);
+  background-color: var(--secondary-colour);
+  color: var(--background-colour);
 }
 
 /* Bumps down font size when menu is open on mobile */

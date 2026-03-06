@@ -1,5 +1,5 @@
 <!-- Todo: -->
-<!-- I MADE A CHANGE!!! -->
+<!-- I MADE A CHANGE!!!! -->
 <script setup>
 import Eusopht_logo from '@/assets/Eusopht_logo-white.png'
 import { Sun, Moon } from 'lucide-vue-next'

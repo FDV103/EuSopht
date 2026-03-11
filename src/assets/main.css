@@ -26,6 +26,7 @@
   --faint-border: #d0d5dd;
   /* components/GridPattern.vue - subtle grid effect used at top of many pages on the existing site */
   --grid-colour: #80808012;
+  --box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #0000002e;
 }
 
 .dark {
@@ -41,6 +42,7 @@
   --nav-bg-colour: linear-gradient(90deg, var(--secondary-colour), var(--background-colour));
   --faint-border: var(--section-background-colour);
   --grid-colour: #ffffff08;
+  --box-shadow: 0 4px 8px 0 #ffffff15, 0 6px 20px 0 #ffffff10;
 }
 
 body {

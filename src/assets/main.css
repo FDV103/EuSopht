@@ -15,6 +15,7 @@
   --section-background-colour: #f5f7fa;
   --text-colour-primary: #111315;
   --text-colour-secondary: #4b4f56;
+  --banner-footer-colour:#0B1C3D;
   --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Inter', Arial, sans-serif;
   /* Geist mono was not given in client package, but if you check dev tools it is used as an accent font on many pages. */
@@ -37,6 +38,7 @@
   --section-background-colour: #15181d;
   --text-colour-primary: #e3e6eb;
   --text-colour-secondary: #00d9ff;
+  --banner-footer-colour:#5374a6;
 
   /* TEAM CREATED - ADD/CHANGE AS NEEDED............................................................................... */
   --nav-bg-colour: linear-gradient(90deg, var(--secondary-colour), var(--background-colour));
@@ -86,16 +88,214 @@ nav ul {
 
 /* Todo: Decide as a team how to approach buttons, this gives light: blue background, white text. dark: light blue background, black text. */
 button {
-  background-color: var(--primary-colour);
-  color: var(--background-colour);
-  padding: 0.5rem 1.5rem;
+  background-color: var(--secondary-colour);
+  color: var(--text-colour-primary);
+  padding: 1rem 3rem;
   font-size: 1rem;
   /* for theme icons, just scope this in the navbar if others need borders */
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 3rem;
 }
 
 button:hover {
   cursor: pointer;
   opacity: 0.9;
+}
+
+/* PORTFOLIO PAGE ................................................................................. */
+.page {
+  color: var(--text-colour-primary);
+  background: var(--background-colour);
+}
+
+.portfolio-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 1.5rem 3rem;
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--secondary-colour) 18%, transparent), transparent 45%),
+    var(--background-colour);
+}
+
+.portfolio-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portfolio-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.portfolio-hero-text {
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-colour-secondary);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.projects-section {
+  padding: 2rem 1.5rem 5rem;
+}
+
+.bottom-banner-section {
+  padding: 0 1.5rem 5rem;
+}
+
+.bottom-banner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--banner-footer-colour);
+  color: white;
+  border-radius: 2rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.bottom-banner h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.bottom-banner p {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.card-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-hero {
+    min-height: 60vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-hero {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .projects-section,
+  .bottom-banner-section,
+  .card-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions > * {
+    width: 100%;
+  }
+}
+
+/* MEDIA CARD / PORTFOLIO TILE ................................................................................. */
+
+.media-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  height: 420px;
+  background: var(--section-background-colour);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.media-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-card-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.35) 40%,
+      transparent 75%
+    );
+}
+
+.media-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  color: white;
+  width: 100%;
+  z-index: 2;
+}
+
+.media-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.media-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.9;
+  margin-bottom: 0.9rem;
+}
+
+.media-card-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: opacity 0.2s ease;
+}
+
+.media-card-link:hover {
+  opacity: 0.8;
+}
+
+.media-card:hover .media-card-image {
+  transform: scale(1.05);
+  transition: transform 0.35s ease;
 }

@@ -1,6 +1,10 @@
 <script setup>
 import { reactive, ref } from 'vue'
 
+const props = defineProps({
+  submitText: { type: String, default: 'Book Consultation' },
+})
+
 const submitted = ref(false)
 
 const form = reactive({
@@ -71,7 +75,7 @@ const handleSubmit = async () => {
       v-model="form.message"
       placeholder="Tell us about your automation needs..."
     ></textarea>
-    <button type="submit">Book Consultation</button>
+    <button type="submit">{{ props.submitText }}</button>
   </form>
 </template>
 

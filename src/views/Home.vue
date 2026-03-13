@@ -2138,6 +2138,7 @@ h4 {
   background-color: var(--colormix-pripmary);
   border-radius: 0.75rem;
   color: var(--primary-colour);
+  flex-shrink: 0;
 }
 
 .contact-session {
@@ -2187,6 +2188,7 @@ h4 {
     justify-content: center;
   }
 }
+
 
 /* --- CTA section --- */
 

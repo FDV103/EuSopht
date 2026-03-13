@@ -1,6 +1,6 @@
 <script setup>
 import GridPattern from '@/components/GridPattern.vue'
-import Contact from './Contact.vue'
+import ContactForm from '@/components/ContactForm.vue'
 import { ref, onMounted } from 'vue'
 
 const transactionVolume = ref(0)
@@ -1151,7 +1151,9 @@ const toogleFaq = (index) => {
               </ul>
             </div>
           </div>
-          <div class="contact-form"><Contact /></div>
+          <div class="contact-form">
+            <ContactForm :submitText="'Schedule Technical Discovery'" />
+          </div>
         </div>
       </div>
     </section>
@@ -1162,10 +1164,6 @@ const toogleFaq = (index) => {
           <GridPattern />
 
           <div class="cta-content">
-            <div class="hero-badge">
-              <span class="pulse-dot"></span>
-              Let's Build Together
-            </div>
             <h2 id="cta-title">
               Is your <span class="text-gradient">technical debt</span>
               <br aria-hidden="true" />holding back your <span class="text-gradient">growth?</span>
@@ -1176,19 +1174,8 @@ const toogleFaq = (index) => {
             </p>
           </div>
           <div class="cta-action">
-            <RouterLink class="cta-btn btn btn-blue btn-big btn-round" to="/contact"
-              >Start Your Engineering Project<span
-                aria-hidden="true"
-                class="svg-container btn-arrow"
-              >
-                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </span>
+            <RouterLink class="cta-btn btn btn-big btn-round" to="/contact"
+              >Start Your Engineering Project
             </RouterLink>
           </div>
         </div>
@@ -1202,6 +1189,7 @@ const toogleFaq = (index) => {
 <style scoped>
 main {
   --colormix-pripmary: color-mix(in srgb, var(--primary-colour) 10%, transparent);
+  --box-shadow-light: 0 0 8px #ffffff15, 0 2px 20px 0 #ffffff10;
 }
 
 section {
@@ -1249,7 +1237,11 @@ h4 {
 }
 
 .text-gradient {
-  background: var(--nav-bg-colour);
+  background: linear-gradient(
+    90deg,
+    var(--primary-colour),
+    color-mix(in srgb, var(--secondary-colour) 85%, transparent)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1309,19 +1301,20 @@ h4 {
   background-color: var(--primary-colour);
   color: var(--background-colour);
   border: none;
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--primary-colour) 40%, transparent);
+  box-shadow: 0 3px 20px color-mix(in srgb, var(--primary-colour) 40%, transparent);
 }
 
 .btn-blue:hover {
   background-color: color-mix(in srgb, var(--primary-colour) 70%, var(--secondary-colour));
   scale: 1.05;
-  box-shadow: 0 12px 24px color-mix(in srgb, var(--primary-colour) 50%, transparent);
+  box-shadow: 0 3px 24px color-mix(in srgb, var(--primary-colour) 50%, transparent);
 }
 
 .btn-white-blue {
-  background-color: transparent;
+  background-color: var(--background-colour);
   color: var(--primary-colour);
-  border: 1px solid var(--faint-border);
+  border: 1px solid var(--primary-colour);
+  box-shadow: var(--box-shadow-light);
 }
 
 .btn-white-blue:hover {
@@ -1330,7 +1323,7 @@ h4 {
 }
 
 .btn-white {
-  background-color: transparent;
+  background-color: var(--background-colour);
   color: var(--text-colour-primary);
   border: 1px solid var(--faint-border);
 }
@@ -1496,10 +1489,10 @@ h4 {
 
 /* --- features section --- */
 
-article.features-card {
+.features-card {
   align-items: center;
   text-align: center;
-  /* background-color: var(--section-background-colour); */
+  box-shadow: var(--box-shadow-light);
 }
 
 .features-svg {
@@ -1677,6 +1670,12 @@ article.features-card {
 
 .capabilities-card:hover h3 {
   color: var(--secondary-colour);
+}
+
+.capabilities-card,
+.methodology-card,
+.projects-card {
+  box-shadow: var(--box-shadow-light);
 }
 
 .capabilities-card:hover,
@@ -2005,10 +2004,11 @@ article.features-card {
   border-radius: 0.75rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: var(--box-shadow-light);
 }
 
 .faq-question h3 {
-  font-size: clamp(0.9rem, 1vw + 0.5rem, 1.2rem);
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
 }
 
 .faq-question:hover {
@@ -2071,6 +2071,27 @@ article.features-card {
   background-color: color-mix(in srgb, var(--primary-colour) 8%, transparent);
 }
 
+@media screen and (max-width: 768px) {
+  .faq-question {
+    padding: 1.2rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.2rem 1.5rem;
+  }
+
+  .faq-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .faq-arrow svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+}
+
 /* --- conact section --- */
 
 .contact-wrapper {
@@ -2081,12 +2102,6 @@ article.features-card {
 
   max-width: 75rem;
   margin: 4rem auto 0 auto;
-}
-
-@media screen and (max-width: 800px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
 }
 
 .contact-info_text {
@@ -2149,6 +2164,28 @@ article.features-card {
 
 .contact-session li svg {
   color: var(--primary-colour);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: end;
+}
+
+.contact-form form {
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /* --- CTA section --- */
@@ -2159,12 +2196,16 @@ article.features-card {
 }
 
 .cta-card {
+  max-width: 75rem;
+  margin: 0 auto;
+  background: #111827;
+  color: white;
   position: relative;
   border: 1px solid var(--faint-border);
   border-radius: 2rem;
-  padding: 8rem 2rem;
+  padding: 6rem 2rem;
   overflow: hidden;
-  box-shadow: 0 20px 50px color-mix(in srgb, var(--primary-colour) 6%, transparent);
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--primary-colour) 30%, transparent);
 }
 
 .cta-content {
@@ -2186,14 +2227,41 @@ article.features-card {
 .cta-text {
   margin-bottom: 3.5rem;
   max-width: 48rem;
+  color: rgba(255, 255, 255, 0.803);
 }
 
-.cta-actions {
+.cta-action {
   display: flex;
   justify-content: center;
 }
 
 .cta-btn {
   font-size: 1.2rem;
+  background-color: var(--secondary-colour);
+  color: var(--text-colour-primary);
+  font-weight: 500;
+  border: none;
+  box-shadow: 0 3px 20px color-mix(in srgb, var(--secondary-colour) 40%, transparent);
+}
+
+.cta-btn:hover {
+  background-color: color-mix(in srgb, var(--secondary-colour) 80%, var(--primary-colour));
+  scale: 1.05;
+  box-shadow: 0 3px 24px color-mix(in srgb, var(--secondary-colour) 50%, transparent);
+}
+
+@media screen and (max-width: 800px) {
+  .cta-card {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-action {
+    width: 100%;
+  }
+
+  .cta-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 </style>

@@ -1,5 +1,6 @@
 <script setup>
 import GridPattern from '@/components/GridPattern.vue'
+import Contact from './Contact.vue'
 import { ref, onMounted } from 'vue'
 
 const transactionVolume = ref(0)
@@ -215,8 +216,8 @@ const toogleFaq = (index) => {
           Highly Skilled Engineering Teams
         </div>
         <h1 id="hero-title">
-          Enterprise-Grade <br />
-          <span class="text-gradient">Digital Software Solutions. </span><br />
+          Enterprise-Grade <br aria-hidden="true" />
+          <span class="text-gradient">Digital Software Solutions. </span><br aria-hidden="true" />
           <span class="hero-title__gray">Built for Scale. Secured by Design.</span>
         </h1>
         <p class="hero-text">
@@ -347,10 +348,10 @@ const toogleFaq = (index) => {
     <section class="impact-section bg-gray" aria-labelledby="impact-title" ref="impactSectionRef">
       <div class="container impact-box">
         <div class="impact-left">
-          <h3 id="impact-title">
+          <h2 id="impact-title">
             Engineered for <br />
             <span class="text-gradient">Impact.</span>
-          </h3>
+          </h2>
           <p class="impact-desc">
             We deliver measurable results for organizations that demand absolute reliability and
             scale. No compromises.
@@ -451,63 +452,12 @@ const toogleFaq = (index) => {
       </div>
     </section>
 
-    <!-- old version of impact section 
-        <section class="impact-section bg-gray" aria-labelledby="impact-title" ref="impactSectionRef">
-      <div class="container impact-box">
-        <h3 id="impact-title">Engineered for Impact.</h3>
-
-        <div class="cards-grid">
-          <article>
-            <div class="svg-container impact-svg" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-7 h-7 text-blue-600"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
-            </div>
-            <div class="stat-value">
-              <span class="counter" data-target="100">{{ transactionVolume }}</span>M+
-            </div>
-            <h4>Transaction Volume</h4>
-            <p>Processed Securely</p>
-          </article>
-
-          <article>
-            <div class="svg-container impact-svg" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server w-7 h-7 text-blue-600"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>
-            </div>
-            <div class="stat-value">
-              <span class="counter" data-target="99.9">{{ uptime }}</span>%
-            </div>
-            <h4>Uptime</h4>
-            <p>Architected for Mission-Critical Apps</p>
-          </article>
-
-          <article>
-            <div class="svg-container impact-svg" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock w-7 h-7 text-blue-600"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </div>
-              <div class="stat-value">
-              <span class="counter">0</span>
-            </div>
-            <h4>Security Breaches</h4>
-            <p>In Deployed Enterprise Modules</p>
-          </article>
-        </div>
-
-        <div class="impact-btn">
-          <RouterLink class="btn btn-white-blue" to="/client">View Our Clients            
-            <span class="svg-container btn-arrow">
-              <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
-              </svg>
-            </span></RouterLink>
-        </div>
-      </div>
-    </section> -->
-
     <section aria-labelledby="capabilities-title">
       <div class="container">
         <h2 id="capabilities-title">
           Specialized <span class="text-gradient">Engineering Capabilities</span>
         </h2>
-        <p class="capabilities-text">
+        <p class="sub-text">
           We offer full-cycle software development services to help you build, integrate, and scale
           your digital products.
         </p>
@@ -627,7 +577,7 @@ const toogleFaq = (index) => {
         <h2 id="methodology-title">
           The Eusopht <span class="text-gradient">Engineering Standard</span>
         </h2>
-        <p class="methodology-text">
+        <p class="sub-text">
           Our proven methodology ensures predictability, security, and scalability in every project.
         </p>
 
@@ -651,7 +601,7 @@ const toogleFaq = (index) => {
                 <circle cx="12" cy="12" r="10"></circle>
               </svg>
             </div>
-            <div class="methodology-phase">PHASE 1</div>
+            <div class="methodology-phase">Phase 1</div>
             <h3>Architecture & Governance</h3>
             <p class="card-text">
               We define data flows, security protocols, and compliance requirements before a single
@@ -678,7 +628,7 @@ const toogleFaq = (index) => {
                 <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
               </svg>
             </div>
-            <div class="methodology-phase">PHASE 2</div>
+            <div class="methodology-phase">Phase 2</div>
             <h3>Agile Delivery & CI/CD</h3>
             <p class="card-text">
               Transparent development cycles with automated testing pipelines. You get deployable
@@ -705,7 +655,7 @@ const toogleFaq = (index) => {
                 <path d="M8 17v-3"></path>
               </svg>
             </div>
-            <div class="methodology-phase">PHASE 3</div>
+            <div class="methodology-phase">Phase 3</div>
             <h3>Vertical Scaling & Optimization</h3>
             <p class="card-text">
               Load testing and database optimization to ensure the system grows effortlessly as your
@@ -719,7 +669,7 @@ const toogleFaq = (index) => {
     <section aria-labelledby="projects-title">
       <div class="container">
         <h2 id="projects-title"><span class="text-gradient">Featured</span> Projects</h2>
-        <p class="projects-text">
+        <p class="sub-text">
           A glimpse into our diverse portfolio of high-impact digital solutions.
         </p>
 
@@ -743,7 +693,7 @@ const toogleFaq = (index) => {
               </svg>
             </div>
             <div class="projects-img"><img src="" alt="" /></div>
-            <p class="projects-type">WEB APPLICATION</p>
+            <p class="projects-type">Web application</p>
             <h3>AutoFlow</h3>
             <p class="projects-description">
               Car Dealership Web & App Portal developed by EuSopht.
@@ -793,7 +743,7 @@ const toogleFaq = (index) => {
               </svg>
             </div>
             <div class="projects-img"><img src="" alt="" /></div>
-            <p class="projects-type">WEB APPLICATION</p>
+            <p class="projects-type">Web application</p>
             <h3>Learning Cert</h3>
             <p class="projects-description">
               Certification & Training Website - A custom-built platform for certification training
@@ -844,7 +794,7 @@ const toogleFaq = (index) => {
               </svg>
             </div>
             <div class="projects-img"><img src="" alt="" /></div>
-            <p class="projects-type">WEB APPLICATION</p>
+            <p class="projects-type">Web application</p>
             <h3>Social Media Blast</h3>
             <p class="projects-description">
               Social Media Blast is an AI-powered social media management platform designed to
@@ -887,17 +837,13 @@ const toogleFaq = (index) => {
     <section class="bg-gray" aria-labelledby="reviews-title">
       <div class="container">
         <h2 id="c-title">Trusted by <span class="text-gradient">Industry Leaders</span></h2>
-        <p class="reviews-sub">
+        <p class="sub-text">
           See what our clients have to say about their experience building with EuSopht.
         </p>
 
         <div class="reviews-scroll-wrapper">
           <div class="reviews-cards">
-            <article
-              v-for="(review, index) in [...reviewsList, ...reviewsList]"
-              :key="review.id + '-' + index"
-              class="card reviews-card"
-            >
+            <article v-for="review in reviewsList" :key="review.id" class="card reviews-card">
               <div class="reviews-header" aria-hidden="true">
                 <svg
                   class="reviews-quotes"
@@ -992,7 +938,7 @@ const toogleFaq = (index) => {
           </svg>
         </div>
         <h2 id="faq-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
-        <p class="faq-sub">Clarifying the most common queries about our services and solutions.</p>
+        <p class="sub-text">Clarifying the most common queries about our services and solutions.</p>
 
         <div class="faq-cards">
           <article
@@ -1048,19 +994,203 @@ const toogleFaq = (index) => {
       </div>
     </section>
 
-    <!-- final block -->
-    <section aria-labelledby="cta-title">
+    <section class="bg-gray" aria-labelledby="contact-title">
       <div class="container">
-        <h2 id="cta-title">Is your technical debt holding back your growth?</h2>
-        <p>
-          Stop building for today. Start architecting for tomorrow with enterprise-grade software,
-          scalable SaaS platforms, and high-performance mobile experiences.
-        </p>
+        <h2 id="contact-title">
+          Is your infrastructure ready for the
+          <span class="text-gradient">next stage of growth?</span>
+        </h2>
+        <p class="sub-text">Let's discuss your architecture, security, and scalability needs.</p>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h3>Technical Discovery Call</h3>
+            <p class="contact-info_text">
+              Have questions about our enterprise solutions? Want to audit your current
+              architecture? Our engineering team is ready to assist.
+            </p>
+            <div class="contact-info_cards">
+              <div class="contact-info_card">
+                <div class="svg-container info-card_svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <h4>Email</h4>
+                  <p>contact@eusopht.com</p>
+                </div>
+              </div>
 
-        <div>
-          <RouterLink class="btn btn-blue btn-big" to="/contact"
-            >Start Your Engineering Project</RouterLink
-          >
+              <div class="contact-info_card">
+                <div class="svg-container info-card_svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <h4>Phone</h4>
+                  <p>+92 300-225-9802</p>
+                </div>
+              </div>
+
+              <div class="contact-info_card">
+                <div class="svg-container info-card_svg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <h4>Office</h4>
+                  <p>EuSopht B-153, Block 6, Gulshan-e-Iqbal Karachi – 75350 Pakistan</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-session">
+              <h3>Discovery Session Includes:</h3>
+              <ul>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path></svg
+                  >Architecture review and scalability assessment
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path></svg
+                  >Security and compliance audit
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path></svg
+                  >Roadmap planning for future growth
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path></svg
+                  >No-obligation proposal and cost estimate
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="contact-form"><Contact /></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cta-title" class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <GridPattern />
+
+          <div class="cta-content">
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              Let's Build Together
+            </div>
+            <h2 id="cta-title">
+              Is your <span class="text-gradient">technical debt</span>
+              <br aria-hidden="true" />holding back your <span class="text-gradient">growth?</span>
+            </h2>
+            <p class="cta-text sub-text">
+              Stop building for today. Start architecting for tomorrow with enterprise-grade
+              software, scalable SaaS platforms, and high-performance mobile experiences.
+            </p>
+          </div>
+          <div class="cta-action">
+            <RouterLink class="cta-btn btn btn-blue btn-big btn-round" to="/contact"
+              >Start Your Engineering Project<span
+                aria-hidden="true"
+                class="svg-container btn-arrow"
+              >
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </span>
+            </RouterLink>
+          </div>
         </div>
       </div>
     </section>
@@ -1106,7 +1236,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.1rem, 1.4vw + 0.5rem, 1.3rem);
+  font-size: clamp(0.95rem, 1.4vw + 0.5rem, 1.1rem);
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.03rem;
@@ -1128,6 +1258,14 @@ h4 {
 
 .bg-gray {
   background-color: var(--section-background-colour);
+}
+
+.sub-text {
+  font-family: var(--font-accent);
+  color: var(--text-colour-secondary);
+  font-size: clamp(1.1rem, 1.4vw + 0.5rem, 1.3rem);
+  max-width: 45rem;
+  margin: 0 auto;
 }
 
 /* --- btn --- */
@@ -1335,6 +1473,27 @@ h4 {
   font-weight: 600;
 }
 
+@media screen and (max-width: 768px) {
+  h1 {
+    letter-spacing: -0.08rem;
+  }
+  section:first-of-type {
+    padding-block: 6rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 /* --- features section --- */
 
 article.features-card {
@@ -1466,75 +1625,26 @@ article.features-card {
   font-family: var(--font-accent);
 }
 
-/* !!!!!! old version of impact section !!!!!
-.impact-section {
-  padding-bottom: 7.5rem;
-  padding-top: .5rem;
+@media screen and (max-width: 992px) {
+  .impact-box {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .impact-desc {
+    margin-bottom: 1.5rem;
+  }
 }
 
-.impact-box {
-  background-color: var(--background-colour);
-  border-radius: 1.5rem;
-  padding: 4rem 2rem;
-  box-shadow: 0 10px 40px color-mix(in srgb, var(--primary-colour) 5%, transparent);
-  margin-block: 2.5rem;
+@media screen and (max-width: 600px) {
+  .impact-right {
+    grid-template-columns: 1fr;
+  }
 }
-
-#impact-title {
-  font-size: clamp(1.3rem, 1.3vw + 0.5rem, 2rem);
-}
-
-.impact-section article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.impact-svg {
-  color: var(--primary-colour);
-  width: 4rem;
-  height: 4rem;
-  background-color: color-mix(in srgb, var(--primary-colour) 5%, transparent);
-  border: 1px solid color-mix(in srgb, var(--primary-colour) 12%, transparent);
-  border-radius: 50%;
-  margin-bottom: .5rem;
-}
-
-.impact-svg svg {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
-.counter {
-  font-variant-numeric: tabular-nums;
-  display: inline-block;
-  min-width: 3ch;
-}
-
-.stat-value {
-  color: var(--primary-colour);
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: var(--font-accent);
-  letter-spacing: -0.09rem;
-}
-
-.impact-btn {
-  margin-top: 3rem;
-} */
 
 /* --- capabilities section --- */
-.capabilities-text,
-.methodology-text,
-.projects-text,
-.faq-sub {
-  font-family: var(--font-accent);
-  color: var(--text-colour-secondary);
-  font-size: clamp(1.1rem, 1.4vw + 0.5rem, 1.3rem);
-  max-width: 50rem;
-  margin: 0 auto;
-}
 
 .capabilities-svg,
 .methodology-svg {
@@ -1601,6 +1711,7 @@ article.features-card {
   padding: 0.25rem 0.75rem;
   margin-top: 0.5rem;
   margin-bottom: -0.5rem;
+  text-transform: uppercase;
 }
 
 /* --- projects section --- */
@@ -1654,6 +1765,7 @@ article.features-card {
   color: var(--secondary-colour);
   margin-top: 0.5rem;
   padding: 1.5rem 2rem 0.5rem;
+  text-transform: uppercase;
 }
 
 .projects-card h3 {
@@ -1676,8 +1788,6 @@ article.features-card {
 
 .projects-tech ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -1721,10 +1831,6 @@ article.features-card {
 
 /* --- reviews section --- */
 
-.reviews-sub {
-  font-family: var(--font-accent);
-}
-
 .reviews-scroll-wrapper {
   position: relative;
   height: 45rem;
@@ -1737,7 +1843,7 @@ article.features-card {
   column-count: 3;
   column-gap: 2rem;
 
-  animation: scrollVertically 60s linear infinite;
+  animation: scrollVertically 45s linear infinite;
 }
 
 .reviews-scroll-wrapper:hover .reviews-cards {
@@ -1786,7 +1892,6 @@ article.features-card {
 }
 
 .reviews-author {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1850,6 +1955,18 @@ article.features-card {
 .reviews-btn:hover span,
 .faq-btn:hover span {
   transform: translateX(5px);
+}
+
+@media screen and (max-width: 1000px) {
+  .reviews-cards {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .reviews-cards {
+    column-count: 1;
+  }
 }
 
 /* --- FAQ section --- */
@@ -1952,5 +2069,131 @@ article.features-card {
   margin-top: 3rem;
   padding: 0.6rem 2rem;
   background-color: color-mix(in srgb, var(--primary-colour) 8%, transparent);
+}
+
+/* --- conact section --- */
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  text-align: start;
+
+  max-width: 75rem;
+  margin: 4rem auto 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info_text {
+  font-family: var(--font-accent);
+  margin-top: 0.5rem;
+}
+
+.contact-info_cards {
+  margin-block: 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-info_card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.info-text p {
+  color: var(--text-colour-secondary);
+  margin-top: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+.info-text:hover p {
+  color: var(--secondary-colour);
+}
+
+.info-card_svg {
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: var(--colormix-pripmary);
+  border-radius: 0.75rem;
+  color: var(--primary-colour);
+}
+
+.contact-session {
+  background-color: var(--colormix-pripmary);
+  border: 1px solid var(--faint-border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+.contact-session ul {
+  margin-top: 1.5rem;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-session li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: auto;
+  color: var(--text-colour-secondary);
+}
+
+.contact-session li svg {
+  color: var(--primary-colour);
+}
+
+/* --- CTA section --- */
+
+.cta-section {
+  padding-bottom: 8rem;
+  padding-top: 2rem;
+}
+
+.cta-card {
+  position: relative;
+  border: 1px solid var(--faint-border);
+  border-radius: 2rem;
+  padding: 8rem 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px color-mix(in srgb, var(--primary-colour) 6%, transparent);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cta-title {
+  font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
+  margin-block: 1.5rem;
+  max-width: 60rem;
+  letter-spacing: -0.1rem;
+}
+
+.cta-text {
+  margin-bottom: 3.5rem;
+  max-width: 48rem;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-btn {
+  font-size: 1.2rem;
 }
 </style>

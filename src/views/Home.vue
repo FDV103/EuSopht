@@ -2253,6 +2253,11 @@ h4 {
 @media screen and (max-width: 800px) {
   .cta-card {
     padding: 4rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .cta-btn {
+    padding: 1rem 1.2rem;
   }
 
   .cta-action {

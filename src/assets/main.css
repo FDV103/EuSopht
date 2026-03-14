@@ -54,7 +54,6 @@ body {
   padding-top: 80px;
 }
 
-/* I hate how prettier formats one per line like this */
 h1,
 h2,
 h3,
@@ -63,7 +62,8 @@ h5,
 h6,
 button,
 label,
-nav {
+nav,
+footer {
   font-family: var(--font-primary);
 }
 
@@ -84,7 +84,6 @@ nav ul {
   background: var(--nav-bg-colour);
 }
 
-/* Todo: Decide as a team how to approach buttons, this gives light: blue background, white text. dark: light blue background, black text. */
 button {
   background-color: var(--secondary-colour);
   color: var(--text-colour-primary);
@@ -99,5 +98,3 @@ button:hover {
   cursor: pointer;
   opacity: 0.9;
 }
-
-

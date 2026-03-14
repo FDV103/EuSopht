@@ -2189,7 +2189,6 @@ h4 {
   }
 }
 
-
 /* --- CTA section --- */
 
 .cta-section {

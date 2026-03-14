@@ -20,7 +20,15 @@ export const featuredProjects = [
       'The client needed a cleaner and more polished way to present inventory online while making the browsing experience more intuitive and visually professional.',
     solution:
       'A responsive web application was designed and structured to improve navigation, highlight inventory more effectively, and create a stronger digital brand presence.',
-    features: ['Inventory Browsing', 'Responsive Design', 'Improved User Flow'],
+    features: [
+      'Search and filter cars by price, model, mileage, and more.',
+      'Book test drives and upload documents digitally.',
+      'Live inventory management with dealer admin dashboard.',
+      'Role-based dashboards for Admins, Dealers, and Customers.',
+      'In-app messaging with real-time lead capture.',
+      'Push notifications for offers, alerts, and updates.',
+      'Analytics dashboard to track user activity and conversions.',
+    ],
     gallery: [autoFlowImg],
   },
   {

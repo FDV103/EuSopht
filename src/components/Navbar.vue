@@ -1,5 +1,3 @@
-<!-- Todo: -->
-<!-- I MADE A CHANGE!!! -->
 <script setup>
 import Eusopht_logo from '@/assets/Eusopht_logo-white.png'
 import { Sun, Moon } from 'lucide-vue-next'
@@ -17,12 +15,19 @@ const toggleIsOpen = () => {
 <template>
   <nav>
     <div class="nav-bar-container">
-      <button aria-label="Menu" aria-expanded="false" class="hamburger-btn" @click="toggleIsOpen">
+      <button
+        aria-label="Menu"
+        :aria-expanded="isOpen.toString()"
+        class="hamburger-btn"
+        @click="toggleIsOpen"
+      >
         <span :class="{ open: isOpen }"></span>
         <span :class="{ open: isOpen }"></span>
         <span :class="{ open: isOpen }"></span>
       </button>
-      <img :src="Eusopht_logo" alt="EuSopht Logo" class="nav-logo" />
+      <RouterLink to="/">
+        <img :src="Eusopht_logo" alt="EuSopht Logo" class="nav-logo" />
+      </RouterLink>
       <button
         @click="emit('toggleTheme')"
         class="theme-btn"

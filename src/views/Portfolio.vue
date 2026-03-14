@@ -1,37 +1,11 @@
 <script setup>
 import GridPattern from '@/components/GridPattern.vue'
 import { Globe, Smartphone } from 'lucide-vue-next'
+import { featuredProjects } from '@/data/projects'
 
-import autoFlowImg from '@/assets/autoflow.png'
-import viziiImg from '@/assets/vizii.png'
-import midwifeImg from '@/assets/midwife.png'
-
-const featuredProjects = [
-  {
-    id: 1,
-    title: 'AutoFlow',
-    type: 'Web Application',
-    image: autoFlowImg,
-    link: '/portfolio/autoflow',
-    icon: Globe,
-  },
-  {
-    id: 2,
-    title: 'Vizii',
-    type: 'Web Application',
-    image: viziiImg,
-    link: '/portfolio/vizii',
-    icon: Globe,
-  },
-  {
-    id: 3,
-    title: 'MidwifeX',
-    type: 'Mobile Application',
-    image: midwifeImg,
-    link: '/portfolio/midwifex',
-    icon: Smartphone,
-  },
-]
+const getProjectIcon = (type) => {
+  return type === 'Mobile Application' ? Smartphone : Globe
+}
 </script>
 
 <template>
@@ -46,7 +20,7 @@ const featuredProjects = [
         </p>
 
         <div class="hero-actions">
-          <button>Start a Project</button>
+          <RouterLink to="/contact" class="button-link">Start a Project</RouterLink>
         </div>
       </div>
     </section>
@@ -62,11 +36,11 @@ const featuredProjects = [
             <h3 class="media-card-title">{{ project.title }}</h3>
 
             <div class="media-card-meta">
-              <component :is="project.icon" :size="18" />
+              <component :is="getProjectIcon(project.type)" :size="18" />
               <span>{{ project.type }}</span>
             </div>
 
-            <RouterLink :to="project.link" class="media-card-link">
+            <RouterLink :to="`/portfolio/${project.slug}`" class="media-card-link">
               View Case Study
               <span aria-hidden="true">→</span>
             </RouterLink>
@@ -82,7 +56,9 @@ const featuredProjects = [
           Our team of experts is ready to transform your ideas into reality. Let's create
           something exceptional together.
         </p>
-        <button>Talk to Our Experts</button>
+        <button @click="$router.push('/contact')">
+            Talk to Our Experts
+        </button>
       </div>
     </section>
   </main>

@@ -86,16 +86,18 @@ nav ul {
 
 /* Todo: Decide as a team how to approach buttons, this gives light: blue background, white text. dark: light blue background, black text. */
 button {
-  background-color: var(--primary-colour);
-  color: var(--background-colour);
-  padding: 0.5rem 1.5rem;
+  background-color: var(--secondary-colour);
+  color: var(--text-colour-primary);
+  padding: 1rem 3rem;
   font-size: 1rem;
   /* for theme icons, just scope this in the navbar if others need borders */
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 3rem;
 }
 
 button:hover {
   cursor: pointer;
   opacity: 0.9;
 }
+
+

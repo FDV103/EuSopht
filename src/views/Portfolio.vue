@@ -31,8 +31,8 @@ const getProjectIcon = (type) => {
         </h1>
 
         <p class="hero-text portfolio-hero-text">
-          Let's Build Something Amazing Together! Explore our diverse portfolio of
-          successful projects and digital transformations.
+          Let's Build Something Amazing Together! Explore our diverse portfolio of successful
+          projects and digital transformations.
         </p>
 
         <div class="hero-actions">
@@ -109,9 +109,7 @@ const getProjectIcon = (type) => {
           <GridPattern />
 
           <div class="cta-content">
-            <h2 id="cta-title">
-              Ready to Start Your <span class="text-gradient"> Project?</span>
-            </h2>
+            <h2 id="cta-title">Ready to Start Your <span class="text-gradient"> Project?</span></h2>
             <p class="cta-text sub-text">
               Our team of experts is ready to transform your ideas into reality. Let's create
               something exceptional together.
@@ -378,7 +376,11 @@ h4 {
   align-items: center;
   padding: 4rem 1.5rem 3rem;
   background:
-    radial-gradient(circle at top, color-mix(in srgb, var(--secondary-colour) 18%, transparent), transparent 45%),
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--secondary-colour) 18%, transparent),
+      transparent 45%
+    ),
     var(--background-colour);
 }
 
@@ -527,13 +529,12 @@ h4 {
 .media-card-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.35) 40%,
-      transparent 75%
-    );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.35) 40%,
+    transparent 75%
+  );
 }
 
 .media-card-content {

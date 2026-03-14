@@ -6,9 +6,7 @@ import { featuredProjects } from '@/data/projects'
 
 const route = useRoute()
 
-const project = computed(() =>
-  featuredProjects.find((p) => p.slug === route.params.slug),
-)
+const project = computed(() => featuredProjects.find((p) => p.slug === route.params.slug))
 </script>
 
 <template>
@@ -60,12 +58,12 @@ const project = computed(() =>
             class="case-study-content-block"
           >
             <h2>Key Features</h2>
-              <ul class="feature-list">
-                <li v-for="feature in project.features" :key="feature" class="feature-list-item">
-                  {{ feature }}
-                </li>
-              </ul>
-            </section>
+            <ul class="feature-list">
+              <li v-for="feature in project.features" :key="feature" class="feature-list-item">
+                {{ feature }}
+              </li>
+            </ul>
+          </section>
 
           <section
             v-if="project.gallery && project.gallery.length"
@@ -146,12 +144,10 @@ const project = computed(() =>
           <GridPattern />
 
           <div class="cta-content">
-            <h2 id="cta-title">
-              Inspired by this <span class="text-gradient"> Project?</span>
-            </h2>
+            <h2 id="cta-title">Inspired by this <span class="text-gradient"> Project?</span></h2>
             <p class="cta-text sub-text">
-              Let's discuss how we can build something similar for your business. We turn ideas
-               into scalable production-ready solutions.
+              Let's discuss how we can build something similar for your business. We turn ideas into
+              scalable production-ready solutions.
             </p>
           </div>
           <div class="cta-action">
@@ -168,9 +164,7 @@ const project = computed(() =>
     <section class="page-hero">
       <div class="page-hero-content">
         <h1>Project Not Found</h1>
-        <p class="page-hero-text">
-          The portfolio item you were looking for could not be found.
-        </p>
+        <p class="page-hero-text">The portfolio item you were looking for could not be found.</p>
         <div class="hero-actions">
           <RouterLink to="/portfolio" class="button-link">Back to Portfolio</RouterLink>
         </div>
@@ -180,7 +174,6 @@ const project = computed(() =>
 </template>
 
 <style scoped>
-
 h1 {
   font-size: clamp(2.25rem, 4vw + 1rem, 4.5rem);
   font-weight: 700;
@@ -431,7 +424,6 @@ h4 {
   animation: sonarWave 1s infinite cubic-bezier(0, 0, 0.2, 0.1);
 }
 
-
 @keyframes sonarWave {
   0% {
     transform: scale(1);
@@ -511,8 +503,6 @@ h4 {
   background: transparent;
 }
 
-
-
 /* CASE STUDY / PORTFOLIO DETAIL ................................................................................. */
 .page {
   background: var(--background-colour);
@@ -528,7 +518,11 @@ h4 {
   justify-content: center;
   padding: 4rem 1.5rem 3rem;
   background:
-    radial-gradient(circle at top, color-mix(in srgb, var(--secondary-colour) 18%, transparent), transparent 45%),
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--secondary-colour) 18%, transparent),
+      transparent 45%
+    ),
     var(--background-colour);
 }
 
@@ -929,5 +923,4 @@ h4 {
     padding: 1.2rem;
   }
 }
-
 </style>

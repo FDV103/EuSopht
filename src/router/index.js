@@ -12,11 +12,7 @@ const router = createRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/portfolio', component: Portfolio },
-    { path: '/portfolio/:slug',
-      name: 'portfolio-detail',
-      component: PortfolioDetail,
-      props: true,
-    },
+    { path: '/portfolio/:slug', name: 'portfolio-detail', component: PortfolioDetail, props: true },
     { path: '/client', component: Client },
     { path: '/faq', component: Faq },
     { path: '/blog', component: Blog },

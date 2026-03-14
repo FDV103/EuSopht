@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
 import { ref } from 'vue'
 
 const isDark = ref(false)
@@ -13,6 +14,7 @@ const toggleTheme = () => {
 <template>
   <Navbar @toggle-theme="toggleTheme" :isDark="isDark" />
   <RouterView />
+  <Footer />
 </template>
 
 <style scoped></style>

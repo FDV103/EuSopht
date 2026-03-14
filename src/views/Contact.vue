@@ -20,8 +20,7 @@ import ContactForm from '@/components/ContactForm.vue'
   display: grid;
   text-align: center;
   gap: 2rem;
-  padding-top: 9rem;
-  padding-bottom: 5rem;
+  padding: 9rem 1.5rem 5rem;
 }
 
 .container p {

@@ -5,6 +5,7 @@ import PortfolioDetail from '@/views/PortfolioDetail.vue'
 import Client from '@/views/Client.vue'
 import Faq from '@/views/Faq.vue'
 import Blog from '@/views/Blog.vue'
+import BlogPost from '@/views/BlogPost.vue'
 import Contact from '@/views/Contact.vue'
 
 const router = createRouter({
@@ -16,6 +17,7 @@ const router = createRouter({
     { path: '/client', component: Client },
     { path: '/faq', component: Faq },
     { path: '/blog', component: Blog },
+    { path: '/blog/:slug', name: 'blog-post', component: BlogPost, props: true },
     { path: '/contact', component: Contact },
   ],
 })

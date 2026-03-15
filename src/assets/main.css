@@ -27,6 +27,18 @@
   /* components/GridPattern.vue - subtle grid effect used at top of many pages on the existing site */
   --grid-colour: #80808012;
   --box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #0000002e;
+
+  /* Blog variables */
+  --text-colour-muted: #6b7280;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.14);
+
+  --transition: 0.22s ease;
 }
 
 .dark {
@@ -43,6 +55,11 @@
   --faint-border: var(--section-background-colour);
   --grid-colour: #ffffff08;
   --box-shadow: 0 4px 8px 0 #ffffff15, 0 6px 20px 0 #ffffff10;
+
+  --text-colour-muted: #9ca3af;
+  --shadow-sm: 0 1px 4px rgba(255, 255, 255, 0.06);
+  --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 8px 32px rgba(255, 255, 255, 0.14);
 }
 
 body {
@@ -97,4 +114,48 @@ button {
 button:hover {
   cursor: pointer;
   opacity: 0.9;
+}
+
+/* ===== Blog Utility ===== */
+.blog-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.bottom-border {
+  border-bottom: 1px solid;
+  border-color: var(--faint-border);
+}
+
+/* ===== Blog Header ===== */
+.blog-header {
+  background: var(--background-colour);
+  padding: 40px 0px 0px 0px;
+}
+
+.blog-header-eyebrow {
+  font-family: var(--font-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-colour-secondary);
+  margin-bottom: 10px;
+}
+
+.blog-header-title {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-colour-primary);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.blog-header-sub {
+  font-size: 1rem;
+  color: var(--text-colour-primary);
+  font-weight: 400;
+  margin-bottom: 20px;
 }

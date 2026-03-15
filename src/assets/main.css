@@ -1,6 +1,4 @@
-/* Todo: We need to define variables for any colour used in the project
-and add the corresponding dark theme colour to the .dark class
-so theme toggle works across all pages */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&family=Geist+Mono:wght@100..900&display=swap');
 
 * {
   margin: 0;
@@ -8,24 +6,95 @@ so theme toggle works across all pages */
   box-sizing: border-box;
 }
 
+/* Light theme colours are defined in root, the colours they switch to are defined in .dark using the same variable name */
 :root {
-  --background-colour: #f4f4f6;
-  --text-colour: black;
-  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #9489f9 );
+  /* CLIENT REQUESTED - DO NOT CHANGE................................................................................. */
+  --primary-colour: #0052cc;
+  --secondary-colour: #00a8e8;
+  --background-colour: #ffffff;
+  --section-background-colour: #f5f7fa;
+  --text-colour-primary: #111315;
+  --text-colour-secondary: #4b4f56;
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', Arial, sans-serif;
+  /* Geist mono was not given in client package, but if you check dev tools it is used as an accent font on many pages. */
+  --font-accent: 'Geist Mono', monospace;
+
+  /* TEAM CREATED - ADD/CHANGE AS NEEDED............................................................................... */
+  --nav-bg-colour: linear-gradient(90deg, var(--primary-colour), var(--secondary-colour));
+  /* A faint border for light theme, none of client light colours worked. Used in contact page currently */
+  --faint-border: #d0d5dd;
+  /* components/GridPattern.vue - subtle grid effect used at top of many pages on the existing site */
+  --grid-colour: #80808012;
+  --box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #0000002e;
+}
+
+.dark {
+  /* CLIENT REQUESTED - DO NOT CHANGE................................................................................. */
+  --primary-colour: #4da6ff;
+  --secondary-colour: #1f6feb;
+  --background-colour: #0f1115;
+  --section-background-colour: #15181d;
+  --text-colour-primary: #e3e6eb;
+  --text-colour-secondary: #00d9ff;
+
+  /* TEAM CREATED - ADD/CHANGE AS NEEDED............................................................................... */
+  --nav-bg-colour: linear-gradient(90deg, var(--secondary-colour), var(--background-colour));
+  --faint-border: var(--section-background-colour);
+  --grid-colour: #ffffff08;
+  --box-shadow: 0 4px 8px 0 #ffffff15, 0 6px 20px 0 #ffffff10;
 }
 
 body {
   background: var(--background-colour);
-  color: var(--text-colour);
+  color: var(--text-colour-primary);
   min-height: 100vh;
+  font-family: var(--font-secondary);
+  /* This padding is so the navbar doesn't cover any body content*/
+  padding-top: 80px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+label,
+nav,
+footer {
+  font-family: var(--font-primary);
 }
 
 nav {
   background: var(--nav-bg-colour);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
-.dark {
-  --background-colour: #0f0f1a;
-  --text-colour: white;
-  --nav-bg-colour: linear-gradient(90deg, #1d1b85, #0f0f1a);
+nav ul {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0.5rem 1.5rem 1rem;
+  background: var(--nav-bg-colour);
+}
+
+button {
+  background-color: var(--secondary-colour);
+  color: var(--text-colour-primary);
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  /* for theme icons, just scope this in the navbar if others need borders */
+  border: none;
+  border-radius: 3rem;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }

@@ -9,17 +9,17 @@
 
 // Blog 8 Image Definitions
 import blog8Image1 from '@/assets/Blog/blog8image1.png'
-const blog8Image2 = new URL('../assets/Blog/blog8image2.png', import.meta.url).href
-const blog8Image3 = new URL('../assets/Blog/blog8image3.png', import.meta.url).href
-const blog8Image4 = new URL('../assets/Blog/blog8image4.png', import.meta.url).href
-const blog8Image5 = new URL('../assets/Blog/blog8image5.png', import.meta.url).href
+import blog8Image2 from '@/assets/Blog/blog8image2.png'
+import blog8Image3 from '@/assets/Blog/blog8image3.png'
+import blog8Image4 from '@/assets/Blog/blog8image4.png'
+import blog8Image5 from '@/assets/Blog/blog8image5.png'
 
 // Blog 7 Image Definitions
 import blog7Image1 from '@/assets/Blog/blog7Image1.png'
-const blog7Image2 = new URL('../assets/Blog/blog7image2.png', import.meta.url).href
-const blog7Image3 = new URL('../assets/Blog/blog7image3.png', import.meta.url).href
-const blog7Image4 = new URL('../assets/Blog/blog7image4.png', import.meta.url).href
-const blog7Image5 = new URL('../assets/Blog/blog7image5.png', import.meta.url).href
+import blog7Image2 from '@/assets/Blog/blog7image2.png'
+import blog7Image3 from '@/assets/Blog/blog7image3.png'
+import blog7Image4 from '@/assets/Blog/blog7image4.png'
+import blog7Image5 from '@/assets/Blog/blog7image5.png'
 
 // Blog 6 Image Definitions
 import blog6Image1 from '@/assets/Blog/blog6Image1.png'

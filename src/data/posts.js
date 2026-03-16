@@ -16,10 +16,10 @@ import blog8Image5 from '@/assets/Blog/blog8image5.png'
 
 // Blog 7 Image Definitions
 import blog7Image1 from '@/assets/Blog/blog7Image1.png'
-import blog7Image2 from '@/assets/Blog/blog7image2.png'
-import blog7Image3 from '@/assets/Blog/blog7image3.png'
-import blog7Image4 from '@/assets/Blog/blog7image4.png'
-import blog7Image5 from '@/assets/Blog/blog7image5.png'
+import blog7Image2 from '@/assets/Blog/blog7Image2.png'
+import blog7Image3 from '@/assets/Blog/blog7Image3.png'
+import blog7Image4 from '@/assets/Blog/blog7Image4.png'
+import blog7Image5 from '@/assets/Blog/blog7Image5.png'
 
 // Blog 6 Image Definitions
 import blog6Image1 from '@/assets/Blog/blog6Image1.png'

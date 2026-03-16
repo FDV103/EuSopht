@@ -7,7 +7,7 @@
 
     <ul class="article-list">
       <li v-for="post in latestPosts" :key="post.id" class="article-item">
-        <RouterLink :to="`/blogs/${post.slug}`" class="article-link">
+        <RouterLink :to="`/blog/${post.slug}`" class="article-link">
           <div class="article-thumb">
             <img :src="post.image" :alt="post.title" class="article-img" />
           </div>

@@ -1,7 +1,10 @@
 <script setup>
 import GridPattern from '@/components/GridPattern.vue'
 import ContactForm from '@/components/ContactForm.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { featuredProjects } from '@/data/projects'
+import { reviewsList } from '@/data/reviews'
+import { Globe, Smartphone } from 'lucide-vue-next'
 
 const transactionVolume = ref(0)
 const uptime = ref(0)
@@ -51,125 +54,16 @@ onMounted(() => {
   }
 })
 
-const reviewsList = ref([
-  {
-    id: 1,
-    name: 'Ahmad Alkhlif',
-    company: 'Digital Konsulterna',
-    initials: 'AA',
-    image: '',
-    rating: 5,
-    text: '"Empowering Digital Success: Our Journey with EuSopht Working with EuSopht has been a game-changer for us at Digital Konsulterna. From day one, Umar, our project manager, and Salman, the senior Flutter developer, felt more like partners than service providers. They really took the time to get under the skin of what we needed, delivering not just technical solutions but real value to our projects and, most importantly, to our clients. What sets EuSopht apart is their personal touch. They didnt just offer us off-the-shelf solutions; they tailored their expertise to fit our unique challenges. Umars knack for keeping things running smoothly and Salmans flair for Flutter development were nothing short of impressive. But it was their commitment to open, honest communication that really made a difference. It felt like they were as invested in our success as we were. Partnering with EuSopht gave us more than just IT support; it gave us peace of mind. Their dedication to excellence and client satisfaction has made a significant impact on our business at Digital Konsulterna. We couldnt recommend them highly enough to anyone in search of top-notch, reliable IT services that truly understand your needs. Thanky you EuSopht! Best regards, Ahmad"',
-  },
-  {
-    id: 2,
-    name: 'Nick Haritos',
-    company: 'Tech Solutions' /* на сайте компания не указана, оставил логичную заглушку */,
-    initials: 'NH',
-    image: '',
-    rating: 5,
-    text: '"Bridging the gap between effort and efficiency We had the privilege of working with Owais, an extraordinary developer who contributed significantly to our operational efficiency. Owais has great expertise in integrating and building tools tailored to our unique business needs. The solutions he provided have saved us both time and money, and have become game-changers in our daily operations. Notably, along with his technical reliability, Owais is an effective communicator. He understands complex business issues quickly, providing concise, easy-to-understand technical strategies. Ensuring all tasks are carried out within their specified time frames, he outperforms our initial expectations every time. If you are looking for a dedicated developer who offers more than just coding skills, Owais is the one. His multifaceted expertise goes beyond software development, integrating effective communication – a trait rare to find in the tech industry. Working with Owais is a profitable and enjoyable journey. In conclusion, Owais gets a 5-star rating from us without a second thought. He is a genuine asset for any organization seeking tech solutions. We look forward to continuing our successful collaboration."',
-  },
-  {
-    id: 3,
-    name: 'Steen',
-    company: 'Sloif',
-    initials: 'ST',
-    image: '',
-    rating: 5,
-    text: '"Based in Denmark, I was worried that I may get problems with language or cultural barriers while hiring softwaredevelopers from Pakistan. Also I was warned that programmers from Pakistan cannot really think creatively by themselves and you have to "hover" them and make sure that they get very specific instructions or they will do a bad job. All that I just wrote is definately not the the case with Eusopht. I can only recommend Umar and his crew for their skill in softwaredevelopment, their ability to advice me and be critical to my thoughts when needed, and bascially that I can give an overall task, leave them alone, and get a good product from it. Moreover people I have shown my software to called Sloif, that they build for me and still are to this day, have been impressed by what Eusopht build for me.I would recommend any day."',
-  },
-  {
-    id: 4,
-    name: 'John Jenks',
-    company: 'Telecom Industry',
-    initials: 'JJ',
-    image: '',
-    rating: 5,
-    text: '"Refreshing Professionalism. Task: Mobile APP to perform Base Station site surveys for the Telecom Industry with API backend integration. Summary: Having worked over the last 15 years with many "offshore" service providers from the region, I have finally found a company that is true to their word, delivers what is agreed, at the expected quality standard and the agreed budget. Simply put, great work from a great team."',
-  },
-  {
-    id: 5,
-    name: 'Stephen S.',
-    company: 'Hybrid Flutter App',
-    initials: 'SS',
-    image: '',
-    rating: 5,
-    text: '"Excellent Development Service – Well Done It\'s so refreshing to work with an off-shore development team that listens to requirements, provides what is requested and in such a professional manner – Thank you."',
-  },
-  {
-    id: 6,
-    name: 'Mohamed D.',
-    company: 'Gulpes App',
-    initials: 'MD',
-    image: '',
-    rating: 5,
-    text: '"I highly recommend EuSopht! They were great to work with – excellent communication, attention to detail, and always met deadlines."',
-  },
-  {
-    id: 7,
-    name: 'Mansoor Osmani',
-    company: 'CLCI',
-    initials: 'MO',
-    image: '',
-    rating: 5,
-    text: '"I have the pleasure of working with EuSopht on few projects recently. During my 30 years\' of experience in Information Technology and Management Consulting projects I have come across very few comapanies who have impressed me as much as EuSopht. Their work style is both efficient and intelligent. I have enjoyed working with EuSopht and I wish them greater success in their professional and personal lives."',
-  },
-  {
-    id: 8,
-    name: 'Nina Chen',
-    company: 'Automation Specialist HubSpot - aXcelerate Integration',
-    initials: 'NC',
-    image: '',
-    rating: 5,
-    text: '"This Project was delivered successfully even it seems impossible. it.s great to have work with them!"',
-  },
-  {
-    id: 9,
-    name: 'Nadim Bargo',
-    company: 'App Development',
-    initials: 'NB',
-    image: '',
-    rating: 5,
-    text: '"From an idea into to a fully developed web app I recently had the pleasure of working with Eusopht, and I must say, it was an outstanding experience from start to finish. Their teams expertise and dedication truly impressed me, and I couldnt be happier with the results. From the initial consultation to the final product launch, Eusopht demonstrated a high level of professionalism and creativity. They took the time to understand my vision and needs, and they translated that into a beautifully designed and fully functiaonal web app. I wholeheartedly recommend Eusopht to anyone seeking a reliable and innovative app development partner. Their passion for what they do shines through in the quality of their work, and I look forward to collaborating with them on future projects. Thank you, Eusopht, for turning my app idea into a reality!"',
-  },
-  {
-    id: 10,
-    name: 'Andre S.',
-    company: 'Meu Exotico',
-    initials: 'AS',
-    image: '',
-    rating: 5,
-    text: '"Amazing job and professionalism. Do not hesitate to hire EuSopht."',
-  },
-  {
-    id: 11,
-    name: 'Craig Anderson',
-    company: 'Tech Solutions',
-    initials: 'CA',
-    image: '',
-    rating: 5,
-    text: '"Excellent service, very helpful, easy to deal with and prompt . Great solution. I highly recommend Eusopht for your technology needs."',
-  },
-  {
-    id: 12,
-    name: 'Nadim A.',
-    company: 'SaaS WebApp',
-    initials: 'NA',
-    image: '',
-    rating: 5,
-    text: '"Great Company, great experience, very professional, and most importantly communication and follow up\'s are definitely exceptional! will definitely hire EuSopht again for other projects."',
-  },
-  {
-    id: 13,
-    name: 'Anthony M.',
-    company: 'PHP Coding',
-    initials: 'AM',
-    image: '',
-    rating: 5,
-    text: '"Very impressed with my first job with EuSopht. Quality work delivered before the deadline with excellent communications – asked all the questions they needed to ensure the job was done correctly the first time. I won\'t hesitate to use them again."',
-  },
-])
+const recentProject = computed(() => {
+  return featuredProjects.slice(-3)
+})
+
+const getProjectIcon = (type) => {
+  if(type && type.toLowerCase().includes('mobile')){
+    return Smartphone
+  }
+  return Globe
+}
 
 const faqList = ref([
   {
@@ -195,7 +89,7 @@ const faqList = ref([
 ])
 
 const activeFaqIndex = ref(null)
-const toogleFaq = (index) => {
+const toggleFaq = (index) => {
   if (activeFaqIndex.value === index) {
     activeFaqIndex.value = null
   } else {
@@ -674,38 +568,24 @@ const toogleFaq = (index) => {
         </p>
 
         <div class="cards-grid">
-          <article class="card projects-card">
+          <article v-for="project in recentProject" :key="project.id" class="card projects-card">
             <div class="svg-container projects-svg" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                <path d="M2 12h20"></path>
-              </svg>
+              <component :is="getProjectIcon(project.type)"/>
             </div>
-            <div class="projects-img"><img src="" alt="" /></div>
-            <p class="projects-type">Web application</p>
-            <h3>AutoFlow</h3>
+            <div class="projects-img"><img :src="project.image" :alt="project.title" /></div>
+            <p class="projects-type">{{ project.type }}</p>
+            <h3>{{ project.title }}</h3>
             <p class="projects-description">
-              Car Dealership Web & App Portal developed by EuSopht.
+              {{ project.shortDescription }}
             </p>
             <div class="projects-tech">
               <ul>
-                <li class="projects-chips">Laravel</li>
-                <li class="projects-chips">Vue.js</li>
+                <li v-for="(tech, index) in project.techStack" :key="index" class="projects-chips">{{ tech }}</li>
               </ul>
             </div>
-            <div class="projects-link">
-              View Case Study
+                      <RouterLink class="projects-link" :to="`/portfolio/${project.slug}`"
+        >
+          View Case Study
               <span
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -721,111 +601,10 @@ const toogleFaq = (index) => {
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path></svg
               ></span>
-            </div>
+        </RouterLink>
+
           </article>
 
-          <article class="card projects-card">
-            <div class="svg-container projects-svg" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                <path d="M2 12h20"></path>
-              </svg>
-            </div>
-            <div class="projects-img"><img src="" alt="" /></div>
-            <p class="projects-type">Web application</p>
-            <h3>Learning Cert</h3>
-            <p class="projects-description">
-              Certification & Training Website - A custom-built platform for certification training
-              providers.
-            </p>
-            <div class="projects-tech">
-              <ul>
-                <li class="projects-chips">Nuxt</li>
-                <li class="projects-chips">Laravel</li>
-              </ul>
-            </div>
-            <div class="projects-link">
-              View Case Study
-              <span
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path></svg
-              ></span>
-            </div>
-          </article>
-
-          <article class="card projects-card">
-            <div class="svg-container projects-svg" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                <path d="M2 12h20"></path>
-              </svg>
-            </div>
-            <div class="projects-img"><img src="" alt="" /></div>
-            <p class="projects-type">Web application</p>
-            <h3>Social Media Blast</h3>
-            <p class="projects-description">
-              Social Media Blast is an AI-powered social media management platform designed to
-              simplify and automate content creation and publishing across multiple platforms.
-            </p>
-            <div class="projects-tech">
-              <ul>
-                <li class="projects-chips">React</li>
-                <li class="projects-chips">TypeScript</li>
-                <li class="projects-chips">Lovable</li>
-              </ul>
-            </div>
-            <div class="projects-link">
-              View Case Study
-              <span
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path></svg
-              ></span>
-            </div>
-          </article>
         </div>
 
         <RouterLink class="projects-btn btn btn-white-blue btn-round" to="/portfolio"
@@ -947,7 +726,7 @@ const toogleFaq = (index) => {
             class="faq-card"
             :class="{ 'is-open': activeFaqIndex === index }"
           >
-            <div class="faq-question" @click="toogleFaq(index)">
+            <div class="faq-question" @click="toggleFaq(index)">
               <h3>{{ faq.question }}</h3>
               <div class="faq-arrow svg-container" aria-hidden="true">
                 <svg
@@ -1188,7 +967,7 @@ const toogleFaq = (index) => {
 
 <style scoped>
 main {
-  --colormix-pripmary: color-mix(in srgb, var(--primary-colour) 10%, transparent);
+  --colormix-primary: color-mix(in srgb, var(--primary-colour) 10%, transparent);
   --box-shadow-light: 0 0 8px #ffffff15, 0 2px 20px 0 #ffffff10;
 }
 
@@ -1365,7 +1144,7 @@ h4 {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 24px var(--colormix-pripmary);
+  box-shadow: 0 12px 24px var(--colormix-primary);
 }
 
 .card:hover .svg-container {
@@ -1499,7 +1278,7 @@ h4 {
   color: var(--primary-colour);
   width: 3.5rem;
   height: 3.5rem;
-  background-color: var(--colormix-pripmary);
+  background-color: var(--colormix-primary);
   border-radius: 0.9rem;
   margin-bottom: 0.5rem;
 }
@@ -1587,7 +1366,7 @@ h4 {
   width: 3.5rem;
   height: 3.5rem;
   background-color: color-mix(in srgb, var(--primary-colour) 5%, transparent);
-  border: 1px solid var(--colormix-pripmary);
+  border: 1px solid var(--colormix-primary);
   border-radius: 50%;
   margin-bottom: 1rem;
 }
@@ -1704,7 +1483,7 @@ h4 {
 .methodology-phase {
   font-size: 0.75rem;
   font-weight: 700;
-  background-color: var(--colormix-pripmary);
+  background-color: var(--colormix-primary);
   color: var(--primary-colour);
   border-radius: 50rem;
   padding: 0.25rem 0.75rem;
@@ -1798,7 +1577,7 @@ h4 {
   font-family: var(--font-accent);
   padding: 0.25rem 0.75rem;
   border-radius: 50rem;
-  background-color: var(--colormix-pripmary);
+  background-color: var(--colormix-primary);
   color: var(--primary-colour);
 }
 
@@ -1811,6 +1590,7 @@ h4 {
   font-weight: 600;
   color: var(--primary-colour);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .projects-link span {
@@ -1901,7 +1681,7 @@ h4 {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: var(--colormix-pripmary);
+  background-color: var(--colormix-primary);
   color: var(--secondary-colour);
   display: flex;
   align-items: center;
@@ -2135,14 +1915,14 @@ h4 {
 .info-card_svg {
   width: 3.2rem;
   height: 3.2rem;
-  background-color: var(--colormix-pripmary);
+  background-color: var(--colormix-primary);
   border-radius: 0.75rem;
   color: var(--primary-colour);
   flex-shrink: 0;
 }
 
 .contact-session {
-  background-color: var(--colormix-pripmary);
+  background-color: var(--colormix-primary);
   border: 1px solid var(--faint-border);
   border-radius: 0.75rem;
   padding: 2rem;

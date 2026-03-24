@@ -3,10 +3,17 @@ import GridPattern from '@/components/GridPattern.vue'
 import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { featuredProjects } from '@/data/projects'
+import { Globe, Smartphone, Apple } from 'lucide-vue-next'
 
 const route = useRoute()
 
 const project = computed(() => featuredProjects.find((p) => p.slug === route.params.slug))
+
+const getPlatformIcon = (platform) => {
+  if (platform === 'ios') return Apple
+  if (platform === 'android') return Smartphone
+  return Globe
+}
 </script>
 
 <template>
@@ -28,6 +35,30 @@ const project = computed(() => featuredProjects.find((p) => p.slug === route.par
         <p class="page-hero-text">
           {{ project.shortDescription }}
         </p>
+        <div v-if="project.projectLinks?.length" class="project-cta-group">
+          <template v-for="link in project.projectLinks" :key="link.label">
+
+            <a
+              v-if="link.url && !link.isComingSoon"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-cta-btn"
+            >
+              <component :is="getPlatformIcon(link.platform)" :size="18" />
+              {{ link.label }}
+            </a>
+
+            <span
+              v-else
+              class="project-cta-btn project-cta-btn-disabled"
+            >
+              <component :is="getPlatformIcon(link.platform)" :size="18" />
+              {{ link.label }}
+            </span>
+
+          </template>
+        </div>
       </div>
     </section>
 
@@ -922,5 +953,63 @@ h4 {
   .case-study-summary-card {
     padding: 1.2rem;
   }
+}
+
+/* --Project link button in header -- */
+
+.project-cta-group {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  background: transparent;
+  color: var(--primary-colour);
+  border: 1px solid var(--primary-colour);
+  border-radius: 999px;
+
+  padding: 0.75rem 1.1rem;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  text-decoration: none;
+
+  box-shadow: var(--box-shadow-light);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.project-cta-btn:hover {
+  transform: translateY(-1px);
+  background-color: color-mix(
+    in srgb,
+    var(--primary-colour) 40%,
+    var(--secondary-colour)
+  );
+  color: var(--background-colour);
+}
+
+.project-cta-btn svg {
+  flex-shrink: 0;
+}
+
+.project-cta-btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+
+  color: var(--text-colour-secondary);
+  border-color: var(--faint-border);
+  background: transparent;
 }
 </style>

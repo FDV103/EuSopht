@@ -299,13 +299,13 @@ export const featuredProjects = [
     techStack: ['React Native', 'Firebase'],
     projectLinks: [
       {
-        label: 'iOS App (Coming Soon)',
+        label: 'iOS App',
         url: 'https://apps.apple.com/pk/app/meu-exotico/id1615574918',
         isComingSoon: false,
         platform: 'ios',
       },
       {
-        label: 'Android App (Coming Soon)',
+        label: 'Android App',
         url: 'https://play.google.com/store/apps/details?id=br.com.meuexotico',
         isComingSoon: false,
         platform: 'android',

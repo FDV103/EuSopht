@@ -1008,8 +1008,9 @@ h4 {
   cursor: not-allowed;
   pointer-events: none;
 
-  color: var(--text-colour-secondary);
-  border-color: var(--faint-border);
   background: transparent;
+  color: var(--primary-colour);
+  border: 1px solid var(--primary-colour);
+  border-radius: 999px;
 }
 </style>

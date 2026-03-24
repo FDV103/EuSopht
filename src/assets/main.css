@@ -159,3 +159,60 @@ button:hover {
   font-weight: 400;
   margin-bottom: 20px;
 }
+
+
+/* ===== Filtering Section ===== */
+
+.filter-toolbar-header {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.filter-toolbar-header h2 {
+  margin-bottom: 0.35rem;
+}
+
+.filter-toolbar-text {
+  color: var(--text-colour-secondary);
+  font-family: var(--font-accent);
+  font-size: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+
+.filter-chip {
+  background: transparent;
+  color: var(--primary-colour);
+  border: 1px solid var(--primary-colour);
+  border-radius: 999px;
+  padding: 0.75rem 1.1rem;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  box-shadow: var(--box-shadow-light);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.filter-chip:hover {
+  transform: translateY(-1px);
+  background-color: color-mix(
+    in srgb,
+    var(--primary-colour) 40%,
+    var(--secondary-colour)
+  );
+  color: var(--background-colour);
+}
+
+.filter-chip.active {
+  background-color: var(--primary-colour);
+  color: var(--background-colour);
+  border-color: var(--primary-colour);
+}

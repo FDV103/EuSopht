@@ -54,9 +54,9 @@ const getProjectIcon = (type) => {
 
     <section id="projects" class="projects-section">
       <div class="projects-toolbar">
-        <div class="projects-toolbar-header">
+        <div class="filter-toolbar-header">
           <h2>Browse Projects</h2>
-          <p class="projects-toolbar-text">Filter by project type</p>
+          <p class="filter-toolbar-text">Filter by project type</p>
         </div>
 
         <div class="filter-group" role="group" aria-label="Filter projects by type">
@@ -423,53 +423,6 @@ h4 {
   padding: 0 1.5rem;
 }
 
-.projects-toolbar-header {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.projects-toolbar-header h2 {
-  margin-bottom: 0.35rem;
-}
-
-.projects-toolbar-text {
-  color: var(--text-colour-secondary);
-  font-family: var(--font-accent);
-  font-size: 1rem;
-}
-
-.filter-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.filter-chip {
-  background: transparent;
-  color: var(--text-colour-primary);
-  border: 1px solid var(--faint-border);
-  border-radius: 999px;
-  padding: 0.75rem 1.1rem;
-  font-family: var(--font-primary);
-  font-size: 0.95rem;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.filter-chip:hover {
-  transform: translateY(-1px);
-  background: color-mix(in srgb, var(--primary-colour) 8%, transparent);
-}
-
-.filter-chip.active {
-  background: var(--primary-colour);
-  color: var(--background-colour);
-  border-color: var(--primary-colour);
-}
-
 .bottom-banner-section {
   padding: 0 1.5rem 5rem;
 }
@@ -640,4 +593,6 @@ h4 {
   justify-content: center;
   transition: scale 0.3s ease;
 }
+
+
 </style>

@@ -117,7 +117,7 @@ const getProjectIcon = (type) => {
           </div>
           <div class="cta-action">
             <RouterLink class="cta-btn btn btn-big btn-round" to="/contact">
-              Talk To Our Expersts
+              Talk To Our Experts
             </RouterLink>
           </div>
         </div>

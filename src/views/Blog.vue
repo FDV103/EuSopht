@@ -28,19 +28,20 @@
       </div>
       <div class="blog-container bottom-border">
         <!-- ===== Filter Bar ===== -->
-        <div class="filter-bar">
-          <h3 class="filter-label">Latest Articles</h3>
-          <div class="filter-tabs">
-            <button
-              v-for="cat in categories"
-              :key="cat"
-              class="filter-tab"
-              :class="{ active: activeCategory === cat }"
-              @click="activeCategory = cat"
-            >
-              {{ cat }}
-            </button>
-          </div>
+        <div class="filter-toolbar-header">
+          <h2>Latest Articles</h2>
+        </div>
+
+        <div class="filter-group" role="group" aria-label="Filter blogs by category">
+          <button
+            v-for="cat in categories"
+            :key="cat"
+            class="filter-chip"
+            :class="{ active: activeCategory === cat }"
+            @click="activeCategory = cat"
+          >
+            {{ cat }}
+          </button>
         </div>
 
         <!-- ===== Posts Grid ===== -->
@@ -217,65 +218,13 @@ const filteredPosts = computed(() => {
   border-color: var(--primary-colour);
 }
 
-/* ===== Filter Bar ===== */
-.filter-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding-bottom: 24px;
-  margin-bottom: 32px;
-  margin-top: 20px;
-}
-
-.filter-label {
-  font-family: var(--font-primary);
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-colour-primary);
-}
-
-.filter-tabs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.filter-tab {
-  padding: 7px 18px;
-  border-radius: 999px;
-  border: 1.5px solid var(--faint-border);
-  background: #fff;
-  color: var(--primary-colour);
-  font-family: var(--font-primary);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    background var(--transition),
-    color var(--transition),
-    border-color var(--transition);
-  white-space: nowrap;
-}
-.filter-tab:hover {
-  border-color: var(--primary-colour);
-  color: var(--text-colour-primary);
-}
-.filter-tab.active {
-  background: var(--primary-colour);
-  border-color: var(--primary-colour);
-  color: var(--text-colour-primary);
-  font-weight: 600;
-}
-
 /* ===== Grid ===== */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 @media (max-width: 1024px) {

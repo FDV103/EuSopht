@@ -142,6 +142,7 @@ const expertiseIntegrationsList = [
 ]
 </script>
 
+
 <template>
   <div class="page-container">
     <!-- PAGE HEADING -->
@@ -172,17 +173,33 @@ const expertiseIntegrationsList = [
         </div>
       </div>
 
-      <!-- FAQ RIGHT SIDE ANSWERS -->
-      <div class="FAQ-answer">
+      <!-- RIGHT SIDE (DESKTOP ONLY) -->
+      <div class="FAQ-answer" v-if="activeFAQIndex !== null">
         <h2>{{ FAQs[activeFAQIndex].question }}</h2>
         <p v-html="FAQs[activeFAQIndex].answer"></p>
       </div>
     </div>
 
     <!-- CTA SECTION -->
-    <!-- <div class="CTA-section">
-      <h1 class="CTA-title">Still have <span>Questions?</span></h1>
-      <p class="CTA-subtitle">Our team of experts is ready to transform your ideas into reality. Let's create something exceptional together.</p>
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2 id="cta-title">
+              Still have<span class="text-gradient"> Questions?</span>
+            </h2>
+            <p class="cta-text sub-text">
+              Our team of experts is ready to transform your ideas into reality. Let's create something exceptional together.
+            </p>
+          </div>
+          <div class="cta-action">
+            <RouterLink class="cta-btn btn btn-big btn-round" to="/contact">
+              Talk To Our Experts
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+    </section>
 
       <button class="CTA-button">Talk To Our Experts</button>
     </div> -->
@@ -190,119 +207,325 @@ const expertiseIntegrationsList = [
 </template>
 
 <style scoped>
-/* 
-NEED TO WORK ON:
-[] Double check fonts & colours and set up global variables if not already done
-[] Add responsive design for mobile devices
-[] Add night mode colours effect
-*/
 
 .page-container {
   max-width: 1200px;
   margin: auto;
+  padding: 0 1rem;
 }
 
 /* FAQ SECTION STYLING */
 
-/* 
-NEED TO WORK ON:
-[] Make answer section sticky on scroll
-[] Add shadows on answer box
-[] Make answer section responsive to text length
-[] Add smooth transition to answers when switching questions
-[] Change text color and add underline for a tags, on hover text should be lighter
-[] Add gradient effect on Questions in heading
-*/
-
-.FAQ-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  color: #0f172a;
+.faq-logo {
+  width: 3.8rem;
+  height: 3.8rem;
+  margin: 1rem auto 2.5rem;
+  background: color-mix(in srgb, var(--primary-colour) 8%, transparent);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
 }
 
-.FAQ-subtitle {
-  font-size: 1.2rem;
+.faq-logo svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: scale 0.3s ease;
+}
+
+.FAQ-heading {
+  font-weight: 900;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
   color: #5d6166;
 }
 
-.FAQ-container {
-  display: flex;
-  gap: 40px;
-  margin-top: 60px;
-  margin-bottom: 80px;
+.text-gradient {
+  background: linear-gradient(90deg,#60d3ff,#4a8fff);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.FAQ-list {
-  width: 40%;
+.FAQ-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 auto 40px;
+  color: var(--text-colour-secondary);
+  max-width: 700px;
+  letter-spacing: -0.05rem;
 }
 
 .FAQ-question {
   padding: 16px;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #f1f5f9;
+  background-color: var(--background-colour);
+  border: 0.5px solid var(--text-colour-secondary);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.FAQ-question-row {
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
+  align-items: center;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
 }
 
 .FAQ-question.active {
-  background-color: #0f172a;
-  color: white;
+  background-color: var(--primary-colour);
+  color: var(--background-colour);
+  border: none;
+}
+
+.FAQ-container {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 40px;
+  justify-content: center; 
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  width: 90vw;
+}
+
+.FAQ-list {
+  flex: 1 1 40%; 
+  min-width: 250px;
 }
 
 .FAQ-answer {
-  width: 60%;
-  background-color: #f8fafc;
+  flex: 1 1 58%; 
+  min-width: 300px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-colour);
+  border: 0.5px solid var(--text-colour-secondary);
   padding: 30px;
   border-radius: 10px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+  transition: all 0.3s ease-in-out;
+}
+
+.FAQ-answer p{
+  padding: 10px 0;
+  line-height: 1.8;
+  color: var(--text-colour-secondary);
+}
+
+.FAQ-answer-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+  .FAQ-container {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .FAQ-question {
+    padding: 0; 
+    border-radius: 12px;
+    overflow: hidden; 
+    border: 0.5px solid var(--text-colour-secondary);
+    background-color: var(--background-colour);
+  }
+
+  .FAQ-question-row {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .FAQ-question.active .FAQ-question-row {
+    background-color: var(--primary-colour);
+    color: var(--background-colour);
+  }
+
+  .FAQ-answer-mobile {
+    display: block;
+    background-color: var(--background-colour);
+    padding: 16px;
+    border: 0.5px solid var(--text-colour-secondary);
+  }
+
+  .FAQ-answer-mobile p {
+    color: var(--text-colour-secondary);
+    line-height: 1.7;
+  }
+
+  .FAQ-answer {
+    display: none;
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .arrow.open {
+    transform: rotate(90deg);
+  }
+
+  .FAQ-question.active .arrow {
+    color: var(--background-colour);
+  }
 }
 
 /* CTA SECTION STYLING  */
 
-/* .cta-section {
-  background:linear-gradient(135deg,#0b2447,#0f2a52);
-  border-radius: 40px;
-  padding: 70px 40px;
+.container {
+  max-width: 87.5rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   text-align: center;
+}
+
+.cta-section {
+  padding-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.cta-card {
+  max-width: 75rem;
+  margin: 0 auto;
+  background: #111827;
   color: white;
-  margin-bottom: 80px;
+  position: relative;
+  border: 1px solid var(--faint-border);
+  border-radius: 2rem;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--primary-colour) 30%, transparent);
 }
 
-.cta-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+.cta-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.cta-title span{
-  background: linear-gradient(90deg,#60d3ff,#4a8fff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+#cta-title {
+  font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
+  margin-block: 1.5rem;
+  max-width: 60rem;
+  letter-spacing: -0.1rem;
 }
 
-.cta-subtitle {
-  max-width: 600px;
-  margin: auto;
-  font-size: 18px;
-  margin-bottom: 30px;
-  color:#cbd5e1
+.cta-text {
+  margin-bottom: 3.5rem;
+  max-width: 48rem;
+  color: rgba(255, 255, 255, 0.803);
 }
 
-.cta-button {
-  background: linear-gradient(90deg,#56c6e7, #6dd5ed);
+.cta-action {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-btn {
+  font-size: 1.2rem;
+  background-color: var(--secondary-colour);
+  color: var(--text-colour-primary);
+  font-weight: 500;
   border: none;
-  padding: 16px 36px;
-  border-radius: 40px;
-  font-size: 18px;
-  font-weight: 600;
+  box-shadow: 0 3px 20px color-mix(in srgb, var(--secondary-colour) 40%, transparent);
+  text-decoration: none;
+}
+
+.btn-big {
+  padding: 1.3rem 2.6rem;
+}
+
+.btn-round {
+  border-radius: 50rem;
+}
+
+.cta-btn:hover {
+  background-color: color-mix(in srgb, var(--secondary-colour) 80%, var(--primary-colour));
+  scale: 1.05;
+  box-shadow: 0 3px 24px color-mix(in srgb, var(--secondary-colour) 50%, transparent);
+}
+
+@media screen and (max-width: 800px) {
+  .cta-card {
+    padding: 4rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .cta-btn {
+    padding: 1rem 1.2rem;
+  }
+
+  .cta-action {
+    width: 100%;
+  }
+
+  .cta-action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* EXPERTISE & INTEGRATIONS SECTION STYLING */
+
+.expertise-section {
+  position: relative;
+  text-align: center;
+  margin-bottom: 80px;
+  padding-top: 60px;
+}
+
+.expertise-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  border-top: 1px solid var(--text-colour-secondary);
+}
+
+.expertise-title {
+  padding: 0 10px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: var(--text-colour-secondary);
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.tag-pill{
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 2px solid var(--section-background-colour);
+  background-color: var(--background-colour);
+  color: var(--text-colour-secondary);
   cursor: pointer;
   color: white;
 } */

@@ -31,8 +31,8 @@ const getProjectIcon = (type) => {
         </h1>
 
         <p class="hero-text portfolio-hero-text">
-          Let's Build Something Amazing Together! Explore our diverse portfolio of
-          successful projects and digital transformations.
+          Let's Build Something Amazing Together! Explore our diverse portfolio of successful
+          projects and digital transformations.
         </p>
 
         <div class="hero-actions">
@@ -54,9 +54,9 @@ const getProjectIcon = (type) => {
 
     <section id="projects" class="projects-section">
       <div class="projects-toolbar">
-        <div class="projects-toolbar-header">
+        <div class="filter-toolbar-header">
           <h2>Browse Projects</h2>
-          <p class="projects-toolbar-text">Filter by project type</p>
+          <p class="filter-toolbar-text">Filter by project type</p>
         </div>
 
         <div class="filter-group" role="group" aria-label="Filter projects by type">
@@ -109,9 +109,7 @@ const getProjectIcon = (type) => {
           <GridPattern />
 
           <div class="cta-content">
-            <h2 id="cta-title">
-              Ready to Start Your <span class="text-gradient"> Project?</span>
-            </h2>
+            <h2 id="cta-title">Ready to Start Your <span class="text-gradient"> Project?</span></h2>
             <p class="cta-text sub-text">
               Our team of experts is ready to transform your ideas into reality. Let's create
               something exceptional together.
@@ -119,7 +117,7 @@ const getProjectIcon = (type) => {
           </div>
           <div class="cta-action">
             <RouterLink class="cta-btn btn btn-big btn-round" to="/contact">
-              Talk To Our Expersts
+              Talk To Our Experts
             </RouterLink>
           </div>
         </div>
@@ -378,7 +376,11 @@ h4 {
   align-items: center;
   padding: 4rem 1.5rem 3rem;
   background:
-    radial-gradient(circle at top, color-mix(in srgb, var(--secondary-colour) 18%, transparent), transparent 45%),
+    radial-gradient(
+      circle at top,
+      color-mix(in srgb, var(--secondary-colour) 18%, transparent),
+      transparent 45%
+    ),
     var(--background-colour);
 }
 
@@ -419,53 +421,6 @@ h4 {
   max-width: 1200px;
   margin: 0 auto 2rem;
   padding: 0 1.5rem;
-}
-
-.projects-toolbar-header {
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.projects-toolbar-header h2 {
-  margin-bottom: 0.35rem;
-}
-
-.projects-toolbar-text {
-  color: var(--text-colour-secondary);
-  font-family: var(--font-accent);
-  font-size: 1rem;
-}
-
-.filter-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.filter-chip {
-  background: transparent;
-  color: var(--text-colour-primary);
-  border: 1px solid var(--faint-border);
-  border-radius: 999px;
-  padding: 0.75rem 1.1rem;
-  font-family: var(--font-primary);
-  font-size: 0.95rem;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.filter-chip:hover {
-  transform: translateY(-1px);
-  background: color-mix(in srgb, var(--primary-colour) 8%, transparent);
-}
-
-.filter-chip.active {
-  background: var(--primary-colour);
-  color: var(--background-colour);
-  border-color: var(--primary-colour);
 }
 
 .bottom-banner-section {
@@ -527,13 +482,12 @@ h4 {
 .media-card-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.35) 40%,
-      transparent 75%
-    );
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.35) 40%,
+    transparent 75%
+  );
 }
 
 .media-card-content {
@@ -639,4 +593,6 @@ h4 {
   justify-content: center;
   transition: scale 0.3s ease;
 }
+
+
 </style>

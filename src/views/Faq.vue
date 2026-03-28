@@ -144,7 +144,7 @@
 
       <!-- LEFT SIDE (QUESTIONS) -->
       <div class="FAQ-list">
-        <div v-for="(FAQ, index) in FAQs" :key="index" class="FAQ-question" :class="{ 'active': activeFAQIndex === index }"@click="selectFAQ(index)">
+        <div v-for="(FAQ, index) in FAQs" :key="index" class="FAQ-question" :class="{ 'active': activeFAQIndex === index }" @click="selectFAQ(index)">
           <div class="FAQ-question-row">
             <span>{{ FAQ.question }}</span>
             <span class="arrow" :class="{ open: activeFAQIndex === index }">›</span>
@@ -196,7 +196,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 

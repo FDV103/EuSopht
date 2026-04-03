@@ -8,7 +8,6 @@ import aiBuddyImg from '@/assets/Projects/AIBuddyf.png'
 import canezoImg from '@/assets/Projects/canezo.png'
 import meuExoticoImg from '@/assets/Projects/meu-exotico.png'
 
-
 export const featuredProjects = [
   {
     id: 1,
@@ -121,7 +120,8 @@ export const featuredProjects = [
     title: 'Learning Cert',
     type: 'Web Application',
     image: learningCertImg,
-    shortDescription: 'Certification training platform with clear learning pathways and structured program guidance.',
+    shortDescription:
+      'Certification training platform with clear learning pathways and structured program guidance.',
     industry: 'Education Technology',
     client: 'Learning Cert',
     services: ['Web Design', 'Web Development'],
@@ -155,7 +155,8 @@ export const featuredProjects = [
     title: 'Postmerica',
     type: 'Web Application',
     image: postMericaImg,
-    shortDescription: 'Bulk shipping label generation and fulfillment platform for eCommerce businesses.',
+    shortDescription:
+      'Bulk shipping label generation and fulfillment platform for eCommerce businesses.',
     industry: 'eCommerce Logistics',
     client: 'Postmerica',
     services: ['Web Design', 'Web Development'],
@@ -223,7 +224,8 @@ export const featuredProjects = [
     title: 'Social Media Blast',
     type: 'Web Application',
     image: aiBuddyImg,
-    shortDescription: 'AI-powered platform for creating, scheduling, and publishing social media content across multiple networks.',
+    shortDescription:
+      'AI-powered platform for creating, scheduling, and publishing social media content across multiple networks.',
     industry: 'Marketing Technology',
     client: 'Social Media Blast',
     services: ['Web Design', 'Web Development', 'AI Integration'],
@@ -258,7 +260,8 @@ export const featuredProjects = [
     title: 'Canezo',
     type: 'Web Application',
     image: canezoImg,
-    shortDescription: 'E-commerce website for an organic sugar brand with product showcase and online ordering.',
+    shortDescription:
+      'E-commerce website for an organic sugar brand with product showcase and online ordering.',
     industry: 'Food & Beverage',
     client: 'Canezo',
     services: ['Web Design', 'E-commerce Development'],
@@ -292,7 +295,8 @@ export const featuredProjects = [
     title: 'Meu Exótico',
     type: 'Mobile Application',
     image: meuExoticoImg,
-    shortDescription: 'Pet management app for tracking health, growth, feeding, and records of exotic pets.',
+    shortDescription:
+      'Pet management app for tracking health, growth, feeding, and records of exotic pets.',
     industry: 'Pet Care',
     client: 'Meu Exótico',
     services: ['Mobile App Design', 'App Development'],

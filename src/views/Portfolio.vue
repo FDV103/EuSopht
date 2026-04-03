@@ -593,6 +593,4 @@ h4 {
   justify-content: center;
   transition: scale 0.3s ease;
 }
-
-
 </style>

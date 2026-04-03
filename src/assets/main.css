@@ -160,7 +160,6 @@ button:hover {
   margin-bottom: 20px;
 }
 
-
 /* ===== Filtering Section ===== */
 
 .filter-toolbar-header {
@@ -184,7 +183,6 @@ button:hover {
   gap: 0.75rem;
 }
 
-
 .filter-chip {
   background: transparent;
   color: var(--primary-colour);
@@ -203,11 +201,7 @@ button:hover {
 
 .filter-chip:hover {
   transform: translateY(-1px);
-  background-color: color-mix(
-    in srgb,
-    var(--primary-colour) 40%,
-    var(--secondary-colour)
-  );
+  background-color: color-mix(in srgb, var(--primary-colour) 40%, var(--secondary-colour));
   color: var(--background-colour);
 }
 

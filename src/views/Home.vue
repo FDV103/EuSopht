@@ -59,7 +59,7 @@ const recentProject = computed(() => {
 })
 
 const getProjectIcon = (type) => {
-  if(type && type.toLowerCase().includes('mobile')){
+  if (type && type.toLowerCase().includes('mobile')) {
     return Smartphone
   }
   return Globe
@@ -570,7 +570,7 @@ const toggleFaq = (index) => {
         <div class="cards-grid">
           <article v-for="project in recentProject" :key="project.id" class="card projects-card">
             <div class="svg-container projects-svg" aria-hidden="true">
-              <component :is="getProjectIcon(project.type)"/>
+              <component :is="getProjectIcon(project.type)" />
             </div>
             <div class="projects-img"><img :src="project.image" :alt="project.title" /></div>
             <p class="projects-type">{{ project.type }}</p>
@@ -580,12 +580,13 @@ const toggleFaq = (index) => {
             </p>
             <div class="projects-tech">
               <ul>
-                <li v-for="(tech, index) in project.techStack" :key="index" class="projects-chips">{{ tech }}</li>
+                <li v-for="(tech, index) in project.techStack" :key="index" class="projects-chips">
+                  {{ tech }}
+                </li>
               </ul>
             </div>
-                      <RouterLink class="projects-link" :to="`/portfolio/${project.slug}`"
-        >
-          View Case Study
+            <RouterLink class="projects-link" :to="`/portfolio/${project.slug}`">
+              View Case Study
               <span
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -601,10 +602,8 @@ const toggleFaq = (index) => {
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path></svg
               ></span>
-        </RouterLink>
-
+            </RouterLink>
           </article>
-
         </div>
 
         <RouterLink class="projects-btn btn btn-white-blue btn-round" to="/portfolio"

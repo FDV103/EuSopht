@@ -37,7 +37,6 @@ const getPlatformIcon = (platform) => {
         </p>
         <div v-if="project.projectLinks?.length" class="project-cta-group">
           <template v-for="link in project.projectLinks" :key="link.label">
-
             <a
               v-if="link.url && !link.isComingSoon"
               :href="link.url"
@@ -49,14 +48,10 @@ const getPlatformIcon = (platform) => {
               {{ link.label }}
             </a>
 
-            <span
-              v-else
-              class="project-cta-btn project-cta-btn-disabled"
-            >
+            <span v-else class="project-cta-btn project-cta-btn-disabled">
               <component :is="getPlatformIcon(link.platform)" :size="18" />
               {{ link.label }}
             </span>
-
           </template>
         </div>
       </div>
@@ -991,11 +986,7 @@ h4 {
 
 .project-cta-btn:hover {
   transform: translateY(-1px);
-  background-color: color-mix(
-    in srgb,
-    var(--primary-colour) 40%,
-    var(--secondary-colour)
-  );
+  background-color: color-mix(in srgb, var(--primary-colour) 40%, var(--secondary-colour));
   color: var(--background-colour);
 }
 
